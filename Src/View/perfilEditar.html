@@ -28,15 +28,15 @@
                     </label>
                     <input type="file" name="file" id="file" class="hidden" onchange="previewImage()">
 
-                    <input type="text" name="name" value="{{ usuario.nome }}" placeholder="Nome de usuário" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" autofocus autocomplete="off" required>
-                    <input type="email" name="email" value="{{ usuario.email }}" placeholder="Email" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" required >
+                    <input type="text" name="name" value="{{ usuario.nome }}" placeholder="Nome de usuário" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="20" autofocus autocomplete="off" required>
+                    <input type="email" name="email" value="{{ usuario.email }}" placeholder="Email" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="48" required >
                     <select name="imagem" id="imagem" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg pl-3 pr-3 rounded-md outline-none focus:bg-white/95" onchange="changeImg('Profiles')" required>
                         <option value="none" selected>Manter imagem atual</option>
                         <option value="file" disabled hidden>Nova imagem personalizada</option>
                         <option value="Default.png">Remover imagem</option>
                     </select>
 
-                    <input type="password" name="password" placeholder="Digite sua senha" class="w-full h-8 mt-2 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" autocomplete="off" required>
+                    <input type="password" name="password" placeholder="Digite sua senha" class="w-full h-8 mt-2 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="255" autocomplete="off" required>
 
                     <div class="w-full flex items-center justify-between">
                         <a href="{{ url }}/perfil/senha" class="ml-2 text-lg text-primary hover:text-primary/80 duration-200">Mudar senha</a>

@@ -53,9 +53,9 @@
                     </label>
                     <input type="file" name="file" id="file" class="hidden" onchange="previewImage()">
                     
-                    <input type="text" name="name" placeholder="Nome da aventura" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" autofocus autocomplete="off" required>
-                    <input type="text" name="livro" placeholder="Livro" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" autocomplete="off">
-                    <input type="text" name="descricao" placeholder="Descrição da aventura" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" required>
+                    <input type="text" name="name" placeholder="Nome da aventura" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="32" autofocus autocomplete="off" required>
+                    <input type="text" name="livro" placeholder="Livro" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="32" autocomplete="off">
+                    <input type="text" name="descricao" placeholder="Descrição da aventura" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="96" required>
                     <select name="imagem" id="imagem" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg pl-3 pr-3 rounded-md outline-none focus:bg-white/95" onchange="changeImg()" required>
                         <option value="" selected disabled hidden>Escolha uma imagem</option>
                         <option value="file" disabled hidden>Imagem personalizada</option>

@@ -28,9 +28,9 @@
                     </label>
                     <input type="file" name="file" id="file" class="hidden" onchange="previewImage()">
                     
-                    <input type="text" name="name" value="{{ item.nome }}" placeholder="Nome do item" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" autofocus autocomplete="off" required>
-                    <input type="number" name="qtd" value="{{ item.quantidade }}" placeholder="Quantidade" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95">
-                    <input type="number" name="preco" value="{{ item.preco }}" placeholder="Preço" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" step="0.01">
+                    <input type="text" name="name" value="{{ item.nome }}" placeholder="Nome do item" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="64" autofocus autocomplete="off" required>
+                    <input type="number" name="qtd" value="{{ item.quantidade }}" placeholder="Quantidade" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" max="999999999">
+                    <input type="number" name="preco" value="{{ item.preco }}" placeholder="Preço" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" max="99999999" step="0.01">
                     
                     <select name="imagem" id="imagem" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg pl-3 pr-3 rounded-md outline-none focus:bg-white/95" onchange="changeImg('Items')" required>
                         <option value="none" selected>Manter imagem atual</option>

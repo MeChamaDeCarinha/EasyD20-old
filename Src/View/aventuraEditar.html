@@ -28,9 +28,9 @@
                     </label>
                     <input type="file" name="file" id="file" class="hidden" onchange="previewImage()">
                     
-                    <input type="text" name="name" value="{{ aventura.nome }}" placeholder="Nome da aventura" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" autofocus autocomplete="off" required>
-                    <input type="text" name="livro" value="{{ aventura.livro }}" placeholder="Nome da aventura" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" autocomplete="off">
-                    <input type="text" name="descricao" value="{{ aventura.descricao }}" placeholder="Descrição da aventura" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" required>
+                    <input type="text" name="name" value="{{ aventura.nome }}" placeholder="Nome da aventura" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="32" autofocus autocomplete="off" required>
+                    <input type="text" name="livro" value="{{ aventura.livro }}" placeholder="Nome da aventura" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="32" autocomplete="off">
+                    <input type="text" name="descricao" value="{{ aventura.descricao }}" placeholder="Descrição da aventura" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="96" required>
                     <select name="imagem" id="imagem" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg pl-3 pr-3 rounded-md outline-none focus:bg-white/95" onchange="changeImg('Cards')" required>
                         <option value="none" selected>Manter imagem atual</option>
                         <option value="file" disabled hidden>Nova imagem personalizada</option>
