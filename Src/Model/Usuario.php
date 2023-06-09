@@ -10,7 +10,7 @@ class Usuario {
     public string $email;
     public string $senha;
     public ?string $img_path;
-    public bool $verificado;
+    public int $verificado;
 
     public function __construct($id){
         $this->id = $id;

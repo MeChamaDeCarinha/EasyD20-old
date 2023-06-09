@@ -17,6 +17,6 @@ composer.phar
 /Src/Lib/vendor
 
 # Images
-# /Src/View/Images/Cards
-# /Src/View/Images/Profiles
-# /Src/View/Images/Items
+/Src/View/Images/Cards
+/Src/View/Images/Profiles
+/Src/View/Images/Items
