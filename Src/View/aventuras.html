@@ -1,0 +1,56 @@
+{% extends "dashboard.html" %}
+
+{% block title %}
+<title>EasyD20 - Aventuras</title>
+{% endblock %}
+
+{% block content %}
+<div class="h-auto w-full p-10 pr-16 pl-16 flex items-center justify-center flex-wrap row gap-6 shrink-0">
+
+    {% for aventura in aventuras %}
+    <div class="group w-96 h-[272px] rounded-xl border-primary border-2 bg-dark-200 overflow-hidden flex flex-col items-center hover:bg-dark-300 duration-500">
+        <img src="../Src/View/Images/Cards/{{ aventura.imagem }}" class="h-2/5 w-full object-cover">
+        <p class="text-2xl p-1 text-center line-clamp-1">{{ aventura.nome }}</p>
+        <p class="h-20 pl-1 pr-1 text-center line-clamp-3">{{ aventura.descricao }}</p>
+        <div class="w-full pl-4 pr-4 pb-2 place-self-start flex items-center gap-2">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <p>{{ aventura.jogadores }} participantes</p>
+            <a href="{{ url }}/aventuras/{{ aventura.id }}/entrar" class="w-8 h-8 bg-primary text-dark-300 rounded-full flex items-center justify-center relative left-44 scale-0 group-hover:scale-100 duration-200 delay-75">
+                <svg class="ml-1 w-5" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+            </a>
+            <a href="{{ url }}/aventuras/{{ aventura.id }}" class="relative left-[158px] bottom-[228px] rounded-bl-lg bg-dark-300/80 p-0.5 w-8 opacity-0 group-hover:opacity-100 duration-200 delay-75">
+                <svg class="text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <circle cx="19" cy="12" r="1"></circle>
+                    <circle cx="5" cy="12" r="1"></circle>
+                </svg>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+
+    <a href="{{ url }}/aventuras/criar" class="group w-96 h-[272px] p-10 rounded-xl border-primary text-primary border-2 bg-dark-200 overflow-hidden flex flex-col items-center hover:bg-dark-300 duration-500">
+        <svg class="w-32 h-32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" x2="12" y1="5" y2="19"></line>
+            <line x1="5" x2="19" y1="12" y2="12"></line>
+        </svg>
+        <p class="text-2xl">Crie sua própria uma aventura</p>
+    </a>
+
+    <a href="{{ url }}/aventuras/entrar" class="group w-96 h-[272px] p-10 rounded-xl border-primary text-primary border-2 bg-dark-200 overflow-hidden flex flex-col items-center hover:bg-dark-300 duration-500">
+        <svg class="w-32 h-32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" x2="19" y1="12" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+        <p class="text-2xl">Entre em uma aventura</p>
+    </a>
+
+</div>
+{% endblock %}

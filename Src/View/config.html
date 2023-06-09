@@ -1,0 +1,36 @@
+{% extends "dashboard.html" %}
+
+{% block title %}
+<title>EasyD20 - Configurações</title>
+{% endblock %}
+
+{% block content %}
+<div class="h-auto w-full p-10 pr-16 pl-16 flex items-center justify-center flex-wrap row gap-6 shrink-0">
+
+    <div class="w-2/5 h-auto bg-light-300 dark:bg-dark-300 p-3 rounded-xl flex flex-col items-center justify-center gap-2">
+        <p class="text-3xl">Configurações</p>
+
+        <div class="w-full">
+            <p class="text-primary text-2xl w-full p-2">Geral</p>
+            <div class="ml-4 mr-4 flex items-center gap-3">
+                <p class="text-xl">Modo escuro</p>
+                <label for="colorCheckbox" class="w-max h-6">
+                    <input type="checkbox" id="colorCheckbox" class="peer w-12 h-6 bg-dark-100 checked:bg-primary rounded-full appearance-none duration-300" onclick="changeTheme()">
+                    <div class="w-5 h-5 rounded-full bg-dark-300 relative bottom-[29px] left-0.5 peer-checked:left-[26px] duration-300"></div>
+                </label>
+            </div>
+        </div>
+
+        <div class="w-full">
+            <p class="text-primary text-2xl w-full p-2">Conta</p>
+
+            <div class="w-full m-1 flex items-center justify-center gap-2">
+                <a href="" class="text-lg text-primary hover:text-secondary hover:bg-dark-200 rounded-full pl-2 pr-2 duration-500">Mudar senha</a>
+                <a href="" class="text-lg text-red-500 hover:bg-red-500/20 rounded-full pl-2 pr-2 duration-500">Deletar conta</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "dashboard.html" %}
+
+{% block title %}
+<title>EasyD20 - Item</title>
+{% endblock %}
+
+{% block content %}
+<div class="h-auto w-full p-10 flex flex-row items-start justify-center flex-wrap gap-5 shrink-0">
+
+    <div class="group w-14 h-max text-primary rounded-xl p-2 bg-dark-300 overflow-hidden flex flex-col items-center gap-2">
+        <a href="{{ url }}/fichas/{{ ficha.id }}" class="w-10 h-10 rounded-md hover:bg-white/10 flex items-center justify-center duration-500">
+            <svg class="w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" x2="5" y1="12" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+        </a>
+        {% if mestre or aventura.editar %}
+        <a href="{{ url }}/fichas/{{ ficha.id }}/itens/{{ item.id }}/editar" class="w-10 h-10 rounded-md hover:bg-white/10 flex items-center justify-center duration-500">
+            <svg class="w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+        </a>
+        {% endif %}
+    </div>
+
+    <div class="w-3/6 rounded-xl bg-dark-200 p-2 overflow-hidden flex flex-col items-center">
+        <div class="w-full flex items-center p-3 justify-center gap-2">
+            <div class="w-full bg-dark-300 rounded-lg flex items-center justify-center gap-4">
+                <img src="../../../Src/View/Images/Items/{{ item.img_path }}" class="w-36 h-36 m-4 rounded-lg object-cover">
+                <div class="w-1/2 flex flex-col gap-3">
+                    <p class="w-full h-min text-xl line-clamp-2">Nome: <span class="text-primary">{{ item.nome }}</span></p>
+                    <p class="w-full h-min text-xl line-clamp-1">Quantidade: <span class="text-primary">{{ item.quantidade }}</span></p>
+                    <p class="w-full h-min text-xl line-clamp-1">Preço: <span class="text-primary">{{ item.preco }}</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}

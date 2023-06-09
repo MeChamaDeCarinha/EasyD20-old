@@ -1,0 +1,23 @@
+@tailwind base;
+
+#access {
+    scrollbar-width: thin;
+    scrollbar-color: transparent #eaeaea20;
+}
+
+#access::-webkit-scrollbar {
+    width: 5px;
+}
+
+#access::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 5px;
+}
+
+#access::-webkit-scrollbar-thumb {
+    background-color: #eaeaea20;
+    border-radius: 5px;
+}
+
+@tailwind components;
+@tailwind utilities;

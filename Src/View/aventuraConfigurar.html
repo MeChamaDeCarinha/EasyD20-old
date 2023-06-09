@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>EasyD20 - Configurar aventura</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Src/View/Assets/output.css">
+    <link rel="icon" type="image/x-icon" href="../../Src/View/Images/Logo.png">
+</head>
+
+<body class="bg-dark-300 text-white font-main">
+    <div class="w-screen h-screen flex items-center justify-center">
+        <div class="w-auto h-auto bg-dark-200 p-2 rounded-lg flex flex-col items-center justify-center gap-6">
+
+            <a href="{{ url }}/aventuras/{{ aventura.id }}" class="w-24 h-8 rounded-md mr-auto text-primary flex items-center justify-center gap-1 duration-200 hover:bg-white/20">
+                <svg class="w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" x2="5" y1="12" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                <p class="text-xl">Voltar</p>
+            </a>
+
+            <div class="mr-1 ml-1 mb-6">
+                <p class="text-3xl mr-auto mb-2 pl-2.5">Configurações</p>
+                <form action="{{ url }}/aventuras/{{ aventura.id }}/configurar" method="post" class="w-96 flex flex-col items-center justify-center gap-3">
+                    <div class="flex flex-col justify-center items-center gap-1">
+                        <p class="text-2xl text-primary">{{ aventura.nome }}</p>
+                        <img src="../../Src/View/Images/Cards/{{ aventura.imagem }}" id="img" class="w-96 h-28 rounded-md object-cover group-hover:opacity-50 duration-300">
+                    </div>
+                    
+                    <div class="w-full ml-3 flex items-center gap-3">
+                        <p class="text-xl">Aventura pública a todos</p>
+                        <label for="publica" class="w-max h-6">
+                            <input type="checkbox" id="publica" {% if aventura.publica %} checked {% endif %} name="publica" class="peer w-12 h-6 bg-dark-300 checked:bg-primary rounded-full appearance-none duration-300">
+                            <div class="w-5 h-5 rounded-full bg-dark-100 relative bottom-[29px] left-0.5 peer-checked:left-[26px] duration-300"></div>
+                        </label>
+                    </div>
+                    <div class="w-full ml-3 flex items-center gap-3">
+                        <p class="text-xl">Jogadores editam suas próprias fichas</p>
+                        <label for="editar" class="w-max h-6">
+                            <input type="checkbox" id="editar" {% if aventura.editar %} checked {% endif %} name="editar" class="peer w-12 h-6 bg-dark-300 checked:bg-primary rounded-full appearance-none duration-300">
+                            <div class="w-5 h-5 rounded-full bg-dark-100 relative bottom-[29px] left-0.5 peer-checked:left-[26px] duration-300"></div>
+                        </label>
+                    </div>
+                    
+                    <div class="w-full flex items-center">
+                        <input type="submit" value="Salvar" class="w-28 h-8 bg-primary ml-auto rounded-md text-lg text-dark-300 cursor-pointer duration-200 hover:bg-primary/80">
+                    </div>
+            
+                    <div class="text-red-600 mt-2 flex flex-row-reverse items-center justify-center gap-1">
+                        <p class="peer text-base">{{ alert }}</p>
+                        <svg class="w-5 h-5 peer-empty:hidden shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

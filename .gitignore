@@ -1,0 +1,22 @@
+# Node
+/node_modules
+package-lock.json
+package.json
+
+# Tailwind
+tailwind.config.js
+
+# Enviroment
+.env
+
+# Composer
+composer.lock
+composer.phar
+
+# Dependencies
+/Src/Lib/vendor
+
+# Images
+# /Src/View/Images/Cards
+# /Src/View/Images/Profiles
+# /Src/View/Images/Items

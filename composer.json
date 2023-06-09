@@ -1,0 +1,30 @@
+{
+    "name": "etec/easyd20",
+    "description": "Trabalho de conclusão",
+    "authors": [
+        {
+            "name": "Leonardo Santos",
+            "email": "backend.leonardo@gmail.com"
+        }
+    ],
+    
+    "require": {
+        "twig/twig" : "~3.3",
+        "coffeecode/router": "2.0.*",
+        "phpmailer/phpmailer": "^6.8",
+        "vlucas/phpdotenv": "^5.5"
+    },
+    
+    "config": {
+        "vendor-dir": "Src/Lib/vendor"
+    },
+    
+    "autoload": {
+        "psr-4": {
+            "Src\\" : "Src"
+        },
+        "files": [
+            "Src/Config.php"
+        ]
+    }
+}
