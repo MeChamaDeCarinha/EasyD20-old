@@ -1,0 +1,15 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+<div class="h-auto w-full p-10 flex flex-row items-start justify-center flex-wrap gap-5 shrink-0">
+    <div class="bg-dark-300 p-10 pl-16 pr-16 mt-10 rounded-2xl flex flex-col items-center justify-center">
+        <p class="text-primary text-[100px] leading-none">{{ error }}</p>
+
+        {% if error == 404 %}
+        <p class="text-4xl">Essa página não existe</p>
+        {% else %}
+        <p class="text-4xl">Oops! Algo deu errado</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

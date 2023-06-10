@@ -9,7 +9,7 @@ class aventura {
         "url" => URL,
     );
 
-    public function loadAventura() {
+    public function loadAventuras() {
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
         $pdo = \Src\Lib\Database::connection();
 
@@ -265,7 +265,7 @@ class aventura {
         echo $ambiente->render("aventuraEditar.html", $this->dados);
     }
 
-    public function excluir($url){
+    public function delete($url){
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $aventura = new \Src\Model\Aventura($url["id"]);

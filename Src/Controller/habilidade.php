@@ -30,7 +30,7 @@ class habilidade {
         echo $ambiente->render("habilidadeCriar.html", $this->dados);
     }
 
-    public function salvar($url){
+    public function save($url){
         $ficha_id = $url["ficha_id"];
         $id = $url["habilidade_id"];
         $nome = filter_var($url['nome'], FILTER_SANITIZE_STRING);
@@ -48,7 +48,7 @@ class habilidade {
         header("Location: " . URL . "/fichas/$ficha_id");
     }
 
-    public function nova($url){
+    public function new($url){
         $ficha_id = $url["ficha_id"];
         $nome = filter_var($url['nome'], FILTER_SANITIZE_STRING);
         $forca = filter_var($url['forca'], FILTER_SANITIZE_NUMBER_INT);
@@ -59,7 +59,7 @@ class habilidade {
         header("Location: " . URL . "/fichas/$ficha_id");
     }
 
-    public function excluir($url){
+    public function delete($url){
         $ficha_id = $url["ficha_id"];
         $habilidade = new \Src\Model\Habilidade($url["habilidade_id"]);
 

@@ -30,7 +30,7 @@ class atributo {
         echo $ambiente->render("atributoCriar.html", $this->dados);
     }
 
-    public function salvar($url){
+    public function save($url){
         $ficha_id = $url["ficha_id"];
         $id = $url["atributo_id"];
         $nome = filter_var($url['nome'], FILTER_SANITIZE_STRING);
@@ -46,7 +46,7 @@ class atributo {
         header("Location: " . URL . "/fichas/$ficha_id");
     }
 
-    public function novo($url){
+    public function new($url){
         $ficha_id = $url["ficha_id"];
         $nome = filter_var($url['nome'], FILTER_SANITIZE_STRING);
         $valor = filter_var($url['valor'], FILTER_SANITIZE_NUMBER_INT);
@@ -56,7 +56,7 @@ class atributo {
         header("Location: " . URL . "/fichas/$ficha_id");
     }
 
-    public function excluir($url){
+    public function delete($url){
         $ficha_id = $url["ficha_id"];
         $atributo = new \Src\Model\Atributo($url["atributo_id"]);
 

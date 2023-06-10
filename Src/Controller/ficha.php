@@ -10,7 +10,7 @@ class ficha {
         "url" => URL
     );
 
-    public function loadFicha() {
+    public function loadFichas() {
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         session_start();
@@ -103,7 +103,7 @@ class ficha {
         echo $ambiente->render("fichaEditar.html", $this->dados);
     }
 
-    public function salvar($url){
+    public function save($url){
         $ficha_id = $url["ficha_id"];
         $nome = filter_var($url['nome'], FILTER_SANITIZE_STRING);
         $idade = filter_var($url['idade'], FILTER_SANITIZE_NUMBER_INT);

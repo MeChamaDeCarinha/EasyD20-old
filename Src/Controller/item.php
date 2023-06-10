@@ -58,7 +58,7 @@ class item {
         echo $ambiente->render("itemCriar.html", $this->dados);
     }
 
-    public function salvar($url){
+    public function save($url){
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $ficha_id = $url["ficha_id"];
@@ -123,7 +123,7 @@ class item {
         header("Location: " . URL . "/fichas/$ficha_id");
     }
 
-    public function novo($url){
+    public function new($url){
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $ficha_id = $url["ficha_id"];
@@ -172,7 +172,7 @@ class item {
         header("Location: " . URL . "/fichas/$ficha_id");
     }
 
-    public function excluir($url){
+    public function delete($url){
         $ficha_id = $url["ficha_id"];
         $item = new \Src\Model\Item($url["item_id"]);
 

@@ -1,112 +1,117 @@
 <?php
 
+// Autoload PSR-4
 require './Src/Lib/vendor/autoload.php';
 
+
+// Configuração do Router
 $roteador = new CoffeeCode\Router\Router(URL);
 $roteador->namespace("Src\Controller");
 
+
+//   Homepage
 $roteador->group(null); 
-$roteador->get("/", "main:loadTemplate"); // OK
-$roteador->get("/teste", "teste:teste");
-
-$roteador->group("login"); // OK
-$roteador->get("/", "user:loadTemplateLogin"); // OK
-$roteador->post("/", "user:login"); // OK
-
-$roteador->group("signup"); // OK
-$roteador->get("/", "user:loadTemplateSignup"); // OK
-$roteador->post("/", "user:signup"); // OK
+$roteador->get("/", "home:show");
 
 
-$roteador->group("settings"); // OK
-$roteador->get("/", "config:show");
-
-$roteador->group("aventuras"); // OK
-$roteador->get("/", "aventura:loadAventura"); // OK
-$roteador->get("/{id}", "aventura:show"); // OK
-$roteador->get("/{id}/entrar", "aventura:selectAventura"); // OK
+//  Login
+$roteador->group("login");
+$roteador->get("/", "user:showLogin");
+$roteador->post("/", "user:login"); //  Função de login
 
 
-$roteador->get("/{id}/configurar", "aventura:showConfigurar"); // OK
-$roteador->post("/{id}/configurar", "aventura:saveConfig"); // OK
+//  Cadastro
+$roteador->group("signup");
+$roteador->get("/", "user:showSignup");
+$roteador->post("/", "user:signup"); //  Função de cadastro
 
 
-$roteador->get("/{id}/sair", "aventura:showSair"); // OK
-$roteador->post("/{id}/sair", "aventura:sair"); // OK
-
-$roteador->get("/{id}/excluir", "aventura:showExcluir"); // OK
-$roteador->post("/{id}/excluir", "aventura:excluir"); // OK
-
-$roteador->get("/{id}/mestre/{jogador_id}", "aventura:showMestre"); // OK
-$roteador->post("/{id}/mestre/{jogador_id}", "aventura:mestre"); // OK
-
-$roteador->get("/{id}/expulsar/{jogador_id}", "aventura:showExpulsar"); // OK
-$roteador->post("/{id}/expulsar/{jogador_id}", "aventura:expulsar"); // OK
-
-$roteador->get("/{id}/banir/{jogador_id}", "aventura:showBanir"); // OK
-$roteador->post("/{id}/banir/{jogador_id}", "aventura:banir"); // OK
+// Configurações
+$roteador->group("settings");
+$roteador->get("/", "config:show"); 
 
 
-$roteador->get("/{id}/editar", "aventura:showEditar"); // OK
-$roteador->post("/{id}/editar", "aventura:save"); // OK
-
-$roteador->get("/criar", "aventura:loadCriar"); // OK
-$roteador->post("/criar", "aventura:criar"); // OK
-
-$roteador->get("/entrar", "aventura:loadEntrar"); // OK
-$roteador->post("/entrar", "aventura:entrar"); // OK
-
-
-
-
-$roteador->group("fichas"); // OK
-$roteador->get("/", "ficha:loadFicha"); // OK
-
-$roteador->get("/{ficha_id}", "ficha:showFicha"); // OK - TODO => Items
-
-$roteador->get("/{ficha_id}/editar", "ficha:showEditar"); // OK
-$roteador->post("/{ficha_id}/editar", "ficha:salvar"); // OK
-
-
-
-$roteador->get("/{ficha_id}/atributos/{atributo_id}", "atributo:showEditar"); // OK
-$roteador->post("/{ficha_id}/atributos/{atributo_id}", "atributo:salvar"); // OK
-
-$roteador->get("/{ficha_id}/habilidades/{habilidade_id}", "habilidade:showEditar"); // OK
-$roteador->post("/{ficha_id}/habilidades/{habilidade_id}", "habilidade:salvar"); // OK
+// Aventuras
+$roteador->group("aventuras");
+$roteador->get("/", "aventura:loadAventuras");
+$roteador->get("/{id}", "aventura:show");
+$roteador->get("/{id}/entrar", "aventura:selectAventura");
+$roteador->get("/{id}/configurar", "aventura:showConfigurar");
+$roteador->post("/{id}/configurar", "aventura:saveConfig"); //  Função de salvar as configurações da aventura
+$roteador->get("/{id}/sair", "aventura:showSair");
+$roteador->post("/{id}/sair", "aventura:sair"); //  Função de sair da aventura
+$roteador->get("/{id}/excluir", "aventura:showExcluir");
+$roteador->post("/{id}/excluir", "aventura:delete"); //  Função de deletar a aventura
+$roteador->get("/{id}/mestre/{jogador_id}", "aventura:showMestre");
+$roteador->post("/{id}/mestre/{jogador_id}", "aventura:mestre"); //  Função de transferir o cargo de mestre da aventura
+$roteador->get("/{id}/expulsar/{jogador_id}", "aventura:showExpulsar");
+$roteador->post("/{id}/expulsar/{jogador_id}", "aventura:expulsar"); //  Função de expulsar da aventura
+$roteador->get("/{id}/banir/{jogador_id}", "aventura:showBanir");
+$roteador->post("/{id}/banir/{jogador_id}", "aventura:banir"); //  Função de banir da aventura
+$roteador->get("/{id}/editar", "aventura:showEditar");
+$roteador->post("/{id}/editar", "aventura:save"); //  Função de salvar mudanças na aventura
+$roteador->get("/criar", "aventura:loadCriar");
+$roteador->post("/criar", "aventura:criar"); //  Função de criar aventura
+$roteador->get("/entrar", "aventura:loadEntrar");
+$roteador->post("/entrar", "aventura:entrar"); //  Função de entrar na aventura
 
 
-$roteador->get("/{ficha_id}/itens/{item_id}", "item:show"); // OK
-$roteador->get("/{ficha_id}/itens/{item_id}/editar", "item:showEditar"); // OK
-$roteador->post("/{ficha_id}/itens/{item_id}/editar", "item:salvar"); // OK
+// Fichas
+$roteador->group("fichas");
+$roteador->get("/", "ficha:loadFichas");
+$roteador->get("/{ficha_id}", "ficha:showFicha");
+$roteador->get("/{ficha_id}/editar", "ficha:showEditar");
+$roteador->post("/{ficha_id}/editar", "ficha:save"); //  Função de salvar mudanças na ficha
+
+
+// Atributos
+$roteador->get("/{ficha_id}/atributos/{atributo_id}", "atributo:showEditar");
+$roteador->post("/{ficha_id}/atributos/{atributo_id}", "atributo:save"); //  Função de salvar mudanças no atributo
+$roteador->get("/{ficha_id}/atributos/novo", "atributo:showNovo");
+$roteador->post("/{ficha_id}/atributos/novo", "atributo:new"); //  Função de criar atributo
+$roteador->get("/{ficha_id}/atributos/{atributo_id}/excluir", "atributo:delete"); //  Função de deletar atributo
+
+
+// Habilidades
+$roteador->get("/{ficha_id}/habilidades/{habilidade_id}", "habilidade:showEditar");
+$roteador->post("/{ficha_id}/habilidades/{habilidade_id}", "habilidade:save"); //  Função de salvar mudanças na habilidade
+$roteador->get("/{ficha_id}/habilidades/novo", "habilidade:showNova");
+$roteador->post("/{ficha_id}/habilidades/novo", "habilidade:new"); //  Função de criar habilidade
+$roteador->get("/{ficha_id}/habilidades/{habilidade_id}/excluir", "habilidade:delete"); //  Função de deletar habilidade
+
+
+// Itens
+$roteador->get("/{ficha_id}/itens/{item_id}", "item:show");
+$roteador->get("/{ficha_id}/itens/{item_id}/editar", "item:showEditar");
+$roteador->post("/{ficha_id}/itens/{item_id}/editar", "item:save"); //  Função de salvar mudanças no item
+$roteador->get("/{ficha_id}/itens/novo", "item:showNovo");
+$roteador->post("/{ficha_id}/itens/novo", "item:new"); //  Função de criar item
+$roteador->get("/{ficha_id}/itens/{item_id}/excluir", "item:delete"); //  Função de deletar item
+
+
+// Perfil
+$roteador->group("perfil");
+$roteador->get("/", "user:show");
+$roteador->get("/editar", "user:showEditar");
+$roteador->post("/editar", "user:save"); // Função de salvar mudanças na conta  
+$roteador->get("/senha", "user:showSenha");
+$roteador->post("/senha", "user:changePass"); // Função de mudar senha da conta
+$roteador->get("/verificar", "user:showVerificar");
+$roteador->post("/verificar", "user:verificar"); // Função de verificar email da conta
+$roteador->get("/sair", "user:logout"); // Função de sair da conta
 
 
 
-$roteador->get("/{ficha_id}/atributos/novo", "atributo:showNovo"); // OK
-$roteador->get("/{ficha_id}/habilidades/novo", "habilidade:showNova"); // OK
-$roteador->get("/{ficha_id}/itens/novo", "item:showNovo"); // OK
-
-$roteador->post("/{ficha_id}/atributos/novo", "atributo:novo"); // OK
-$roteador->post("/{ficha_id}/habilidades/novo", "habilidade:nova"); // OK
-$roteador->post("/{ficha_id}/itens/novo", "item:novo"); // OK
-
-$roteador->get("/{ficha_id}/atributos/{atributo_id}/excluir", "atributo:excluir"); // OK
-$roteador->get("/{ficha_id}/habilidades/{habilidade_id}/excluir", "habilidade:excluir"); // OK
-$roteador->get("/{ficha_id}/itens/{item_id}/excluir", "item:excluir"); // OK
+// Erro
+$roteador->group("error");
+$roteador->get("/{error}", "error:show");
 
 
-$roteador->group("perfil"); // OK
-$roteador->get("/", "user:loadTemplateProfile"); //OK
-$roteador->get("/sair", "user:logout"); //OK
 
-$roteador->get("/verificar", "user:loadTemplateVerificar"); //OK
-$roteador->post("/verificar", "user:verificar"); //OK
-
-$roteador->get("/senha", "user:loadTemplateSenha"); //OK
-$roteador->post("/senha", "user:changePass"); //OK
-
-$roteador->get("/editar", "user:loadTemplateProfileEdit"); //OK
-$roteador->post("/editar", "user:editar"); //OK
 
 
 $roteador->dispatch();
+
+if($roteador->error()) {
+    $roteador->redirect("/error/{$roteador->error()}");
+}

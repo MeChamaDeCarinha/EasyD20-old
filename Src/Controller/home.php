@@ -2,12 +2,12 @@
 
 namespace Src\Controller;
 
-class main {
+class home {
     public $dados = array(
         "url" => URL
     );
 
-    public function loadTemplate() {
+    public function show() {
         $carregador = new \Twig\Loader\FilesystemLoader("./Src/View");
         $ambiente = new \Twig\Environment($carregador);
 

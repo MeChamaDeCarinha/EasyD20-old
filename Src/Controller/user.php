@@ -10,7 +10,7 @@ class user {
         "url" => URL,
     );
 
-    public function loadTemplateLogin() {
+    public function showLogin() {
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         if(!isset($_SESSION)){
@@ -21,7 +21,7 @@ class user {
         echo $ambiente->render("login.html", $this->dados);
     }
 
-    public function loadTemplateSignup() {
+    public function showSignup() {
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         if(!isset($_SESSION)){
@@ -32,7 +32,7 @@ class user {
         echo $ambiente->render("signup.html", $this->dados);
     }
 
-    public function loadTemplateProfile() {
+    public function show() {
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         if(!isset($_SESSION)){
@@ -48,7 +48,7 @@ class user {
         echo $ambiente->render("perfil.html", $this->dados);
     }
 
-    public function loadTemplateVerificar() {
+    public function showVerificar() {
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         if(!isset($_SESSION)){
@@ -63,7 +63,7 @@ class user {
         echo $ambiente->render("perfilVerificar.html", $this->dados);
     }
 
-    public function loadTemplateSenha() {
+    public function showSenha() {
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         if(!isset($_SESSION)){
@@ -77,7 +77,7 @@ class user {
         echo $ambiente->render("perfilMudarSenha.html", $this->dados);
     }
 
-    public function loadTemplateProfileEdit() {
+    public function showEditar() {
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         if(!isset($_SESSION)){
@@ -198,7 +198,7 @@ class user {
         echo $ambiente->render("login.html", $this->dados);
     }
 
-    public function editar($dados){
+    public function save($dados){
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $pdo = \Src\Lib\Database::connection();

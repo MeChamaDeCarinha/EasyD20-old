@@ -657,6 +657,10 @@ video {
   margin-top: 8rem;
 }
 
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -1056,6 +1060,10 @@ video {
   overflow-y: scroll;
 }
 
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -1094,10 +1102,6 @@ video {
 
 .border-\[1px\] {
   border-width: 1px;
-}
-
-.border-\[1\.5px\] {
-  border-width: 1.5px;
 }
 
 .border-b-2 {
@@ -1337,6 +1341,22 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-\[100px\] {
+  font-size: 100px;
+}
+
+.leading-none {
+  line-height: 1;
+}
+
+.leading-\[0\] {
+  line-height: 0;
+}
+
+.leading-\[0\.75\] {
+  line-height: 0.75;
 }
 
 .text-dark-300 {
