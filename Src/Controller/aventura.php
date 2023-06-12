@@ -114,6 +114,8 @@ class aventura {
 
         $pdo->query("insert into aventura_usuario(cod_usuario, cod_aventura, mestre) values ({$player_id}, {$created_id}, 1)");
 
+        \Src\Model\Ficha::create($player_id, $created_id);
+
         header("Location: " . URL . "/aventuras");
     }
 
@@ -260,7 +262,6 @@ class aventura {
     public function showEditar($url){
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
-
         $this->dados["aventura"] = new \Src\Model\Aventura($url["id"]);
         echo $ambiente->render("aventuraEditar.html", $this->dados);
     }
@@ -330,6 +331,12 @@ class aventura {
         }
         else{
             $aventura->editar = 0;
+        }
+        if(isset($url["ficha_mestre"])){
+            $aventura->ficha_mestre = 1;
+        }
+        else{
+            $aventura->ficha_mestre = 0;
         }
 
         $aventura->update();

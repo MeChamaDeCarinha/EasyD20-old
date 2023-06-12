@@ -29,7 +29,17 @@ class ficha {
         $pdo = \Src\Lib\Database::connection();
 
         if($mestre){
-            $result = $pdo->query("select id from ficha where cod_aventura = {$aventura_id}", PDO::FETCH_ASSOC);
+            $ficha_mestre = $pdo->query("select ficha_mestre from aventura where id = {$aventura_id}", PDO::FETCH_ASSOC);
+            
+            foreach($ficha_mestre as $aventura){
+                if($aventura["ficha_mestre"]){
+                    $result = $pdo->query("select id from ficha where cod_aventura = {$aventura_id}", PDO::FETCH_ASSOC);
+                }
+                else {
+                    $result = $pdo->query("select id from ficha where cod_aventura = {$aventura_id} and cod_usuario != {$player_id}", PDO::FETCH_ASSOC);
+                }
+            }
+
             if($result->rowCount() == 0){
                 $this->dados["alert"] = "Sua aventura ainda não tem jogadores";
 
@@ -99,7 +109,6 @@ class ficha {
         $ficha_id = $url["ficha_id"];
 
         $this->dados["ficha"] = new \Src\Model\Ficha($ficha_id);
-
         echo $ambiente->render("fichaEditar.html", $this->dados);
     }
 

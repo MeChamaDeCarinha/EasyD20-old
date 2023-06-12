@@ -14,6 +14,7 @@ class Aventura {
     public int $publica;
     public int $editar;
     public int $jogadores;
+    public int $ficha_mestre;
 
     public function __construct($id){
         $this->id = $id;
@@ -30,6 +31,7 @@ class Aventura {
             $this->codigo = $aventura["cod"];
             $this->publica = $aventura["publica"];
             $this->editar = $aventura["editar"];
+            $this->ficha_mestre = $aventura["ficha_mestre"];
         }
 
         $this->jogadores = $pdo->query("select id from aventura_usuario where cod_aventura = {$this->id} and banido = 0", PDO::FETCH_ASSOC)->rowCount();
@@ -38,7 +40,7 @@ class Aventura {
     public function update(){
         $pdo = \Src\Lib\Database::connection();
 
-        $pdo->query("update aventura set nome = '{$this->nome}', livro = '{$this->livro}', descricao = '{$this->descricao}', imagem = '{$this->imagem}', publica = {$this->publica}, editar = {$this->editar} where id = {$this->id}");
+        $pdo->query("update aventura set nome = '{$this->nome}', livro = '{$this->livro}', descricao = '{$this->descricao}', imagem = '{$this->imagem}', publica = {$this->publica}, editar = {$this->editar}, ficha_mestre = {$this->ficha_mestre} where id = {$this->id}");
     }
 
     public function delete(){
@@ -50,6 +52,8 @@ class Aventura {
             $ficha = new \Src\Model\Ficha($ficha["id"]);
             $ficha->delete();
         }
+
+        $pdo->query("delete from mapa where cod_aventura = {$this->id}");
 
         $pdo->query("delete from aventura_usuario where cod_aventura = {$this->id}");
 

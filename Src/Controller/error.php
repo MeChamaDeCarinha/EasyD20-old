@@ -11,8 +11,6 @@ class error {
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $this->dados["error"] = $url["error"];
-        $this->dados["user"] = \Src\Lib\Dashboard::queryUser();
-        $this->dados["aven"] = \Src\Lib\Dashboard::queryAventuras();
         echo $ambiente->render("error.html", $this->dados);
     }
 }

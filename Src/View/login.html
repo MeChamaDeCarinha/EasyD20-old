@@ -26,8 +26,8 @@
             <div class="mr-1 ml-1 mb-6">
                 <p class="text-3xl mr-auto mb-2 pl-2.5">Faça login</p>
                 <form action="{{ url }}/login" method="post" class="w-96 flex flex-col items-center justify-center gap-3">
-                    <input type="text" name="name" value="{{ name }}" placeholder="Nome de usuário ou Email" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="48" autofocus required>
-                    <input type="password" name="password" placeholder="Digite sua senha" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="255" autocomplete="off" required>
+                    <input type="text" name="name" value="{{ name }}" placeholder="Nome de usuário ou Email" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" autofocus autocomplete="off" required>
+                    <input type="password" name="password" placeholder="Digite sua senha" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" autocomplete="off" required>
                     
                     <div class="w-full flex items-center">
                         <a href="{{ url }}/signup" class="ml-3 text-primary text-lg duration-200 hover:text-primary/80">Crie uma conta</a>

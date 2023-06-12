@@ -1,16 +1,23 @@
 const userTheme = localStorage.getItem("theme");
 
+if (userTheme === null) {
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+}
+
 if (userTheme === "dark") {
     document.documentElement.classList.add("dark");
     localStorage.setItem("theme", "dark");
 }
 
 window.onload = (function () {
-    if (userTheme === "dark") {
-        document.getElementById("colorCheckbox").checked = true;
-    }
-    else {
-        document.getElementById("colorCheckbox").checked = false;
+    if(document.getElementById("colorCheckbox")){
+        if (userTheme === "dark") {
+            document.getElementById("colorCheckbox").checked = true;
+        }
+        else {
+            document.getElementById("colorCheckbox").checked = false;
+        }
     }
 });
 

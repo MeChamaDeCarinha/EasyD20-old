@@ -78,7 +78,8 @@ class item {
                 $this->dados["alert"] = "Falha ao enviar arquivo";
         
                 $this->dados["ficha"] = $url["ficha_id"];
-                echo $ambiente->render("itemCriar.html", $this->dados);
+                $this->dados["item"] = new \Src\Model\Item($url["item_id"]);
+                echo $ambiente->render("itemEditar.html", $this->dados);
                 die();
             }
 
@@ -86,7 +87,8 @@ class item {
                 $this->dados["alert"] = "Arquivo maior que 4MB";
                 
                 $this->dados["ficha"] = $url["ficha_id"];
-                echo $ambiente->render("itemCriar.html", $this->dados);
+                $this->dados["item"] = new \Src\Model\Item($url["item_id"]);
+                echo $ambiente->render("itemEditar.html", $this->dados);
                 die();
             }
 
@@ -94,7 +96,8 @@ class item {
                 $this->dados["alert"] = "Tipo de arquivo não aceito";
         
                 $this->dados["ficha"] = $url["ficha_id"];
-                echo $ambiente->render("aventuraCriar.html", $this->dados);
+                $this->dados["item"] = new \Src\Model\Item($url["item_id"]);
+                echo $ambiente->render("itemEditar.html", $this->dados);
                 die();
             }
 

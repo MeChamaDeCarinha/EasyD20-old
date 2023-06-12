@@ -73,6 +73,7 @@ class Ficha {
 
         $pdo->query("delete from atributo where cod_ficha = {$this->id}");
         $pdo->query("delete from habilidade where cod_ficha = {$this->id}");
+        $pdo->query("delete from item where cod_ficha = {$this->id}");
 
         $pdo->query("delete from ficha where id = {$this->id}");
     }
@@ -81,6 +82,8 @@ class Ficha {
         $pdo = \Src\Lib\Database::connection();
 
         $pdo->query("insert into ficha(cod_usuario, cod_aventura) values ({$cod_usuario}, {$cod_aventura})");
+
+        return $pdo->lastInsertId();
     }
 
     public function findJogador(){

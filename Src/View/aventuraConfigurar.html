@@ -40,6 +40,13 @@
                             <div class="w-5 h-5 rounded-full bg-dark-100 relative bottom-[29px] left-0.5 peer-checked:left-[26px] duration-300"></div>
                         </label>
                     </div>
+                    <div class="w-full ml-3 flex items-center gap-3">
+                        <p class="text-xl">Exibir ficha do mestre</p>
+                        <label for="ficha_mestre" class="w-max h-6">
+                            <input type="checkbox" id="ficha_mestre" {% if aventura.ficha_mestre %} checked {% endif %} name="ficha_mestre" class="peer w-12 h-6 bg-dark-300 checked:bg-primary rounded-full appearance-none duration-300">
+                            <div class="w-5 h-5 rounded-full bg-dark-100 relative bottom-[29px] left-0.5 peer-checked:left-[26px] duration-300"></div>
+                        </label>
+                    </div>
                     
                     <div class="w-full flex items-center">
                         <input type="submit" value="Salvar" class="w-28 h-8 bg-primary ml-auto rounded-md text-lg text-dark-300 cursor-pointer duration-200 hover:bg-primary/80">

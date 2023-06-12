@@ -11,7 +11,7 @@ $roteador->namespace("Src\Controller");
 
 //   Homepage
 $roteador->group(null); 
-$roteador->get("/", "home:show");
+$roteador->get("/", "general:showHomepage");
 
 
 //  Login
@@ -56,6 +56,19 @@ $roteador->get("/entrar", "aventura:loadEntrar");
 $roteador->post("/entrar", "aventura:entrar"); //  Função de entrar na aventura
 
 
+// Mapas
+$roteador->group("mapas");
+$roteador->get("/", "mapa:loadMapas");
+$roteador->get("/{id}", "mapa:show");
+$roteador->get("/{id}/editar", "mapa:showEditar");
+$roteador->post("/{id}/editar", "mapa:save"); //  Função de salvar mudanças no mapa
+$roteador->get("/novo", "mapa:showNovo");
+$roteador->post("/novo", "mapa:new"); //  Função de criar mapa
+$roteador->get("/{id}/esconder", "mapa:turnHidden"); //  Função de alterar visibilidade do mapa
+$roteador->get("/{id}/excluir", "mapa:delete"); //  Função de deletar mapa
+
+
+
 // Fichas
 $roteador->group("fichas");
 $roteador->get("/", "ficha:loadFichas");
@@ -89,6 +102,11 @@ $roteador->post("/{ficha_id}/itens/novo", "item:new"); //  Função de criar ite
 $roteador->get("/{ficha_id}/itens/{item_id}/excluir", "item:delete"); //  Função de deletar item
 
 
+// Ajuda
+$roteador->group("ajuda");
+$roteador->get("/", "general:showAjuda");
+
+
 // Perfil
 $roteador->group("perfil");
 $roteador->get("/", "user:show");
@@ -101,13 +119,9 @@ $roteador->post("/verificar", "user:verificar"); // Função de verificar email 
 $roteador->get("/sair", "user:logout"); // Função de sair da conta
 
 
-
 // Erro
 $roteador->group("error");
 $roteador->get("/{error}", "error:show");
-
-
-
 
 
 $roteador->dispatch();
