@@ -14,8 +14,15 @@ class mapa {
 
         $pdo = \Src\Lib\Database::connection();
 
-        if(!isset($_SESSION)){
-            session_start();
+        session_start();
+        $player_id = $_SESSION["id"];
+        if(!isset($_SESSION["aventura_id"])){
+            $this->dados["alert"] = "Nenhuma aventura foi selecionada";
+
+            $this->dados["user"] = \Src\Lib\Dashboard::queryUser();
+            $this->dados["aven"] = \Src\Lib\Dashboard::queryAventuras();
+            echo $ambiente->render("mapas.html", $this->dados);
+            die();
         }
 
         $aventura_id = $_SESSION["aventura_id"];
