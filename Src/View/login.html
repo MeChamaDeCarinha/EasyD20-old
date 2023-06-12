@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Src/View/Assets/output.css">
     <link rel="icon" type="image/x-icon" href="./Src/View/Images/Logo.png">
+    <script src="./Src/View/Assets/splash.js"></script>
 </head>
 
 <body class="bg-dark-300 text-white font-main">
-    <div class="w-screen h-screen flex items-center justify-center">
+    <div id="background" class="w-screen h-screen flex items-center justify-center">
         <div class="w-auto h-auto bg-dark-200 p-2 rounded-lg flex flex-col items-center justify-center gap-6">
 
             <a href="{{ url }}" class="w-24 h-8 rounded-md mr-auto text-primary flex items-center justify-center gap-1 duration-200 hover:bg-white/20">
@@ -23,15 +24,15 @@
                 <p class="text-3xl">EasyD20</p>
             </div>
 
-            <div class="mr-1 ml-1 mb-6">
+            <div class="mr-1 ml-1 mb-6 group-hover:bg-red-500">
                 <p class="text-3xl mr-auto mb-2 pl-2.5">Faça login</p>
-                <form action="{{ url }}/login" method="post" class="w-96 flex flex-col items-center justify-center gap-3">
+                <form action="{{ url }}/login" method="post" class="w-96 flex flex-col items-center justify-center gap-3" onsubmit="showSplash()">
                     <input type="text" name="name" value="{{ name }}" placeholder="Nome de usuário ou Email" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" autofocus autocomplete="off" required>
                     <input type="password" name="password" placeholder="Digite sua senha" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" autocomplete="off" required>
                     
                     <div class="w-full flex items-center">
                         <a href="{{ url }}/signup" class="ml-3 text-primary text-lg duration-200 hover:text-primary/80">Crie uma conta</a>
-                        <input type="submit" value="Entrar" class="w-28 h-8 bg-primary ml-auto rounded-md text-lg text-dark-300 cursor-pointer duration-200 hover:bg-primary/80">
+                        <input type="submit" value="Entrar" class="peer w-28 h-8 bg-primary ml-auto rounded-md text-lg text-dark-300 cursor-pointer duration-200 hover:bg-primary/80">
                     </div>
             
                     <div class="text-red-600 mt-2 flex flex-row-reverse items-center justify-center gap-1">
@@ -41,6 +42,9 @@
                 </form>
             </div>
         </div>
+    </div>
+    <div id="splash" class="w-0 h-0 fixed bg-primary top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full flex items-center justify-center duration-1000">
+        <img src="./Src/View/Images/Logo.png" class="w-32">
     </div>
 </body>
 

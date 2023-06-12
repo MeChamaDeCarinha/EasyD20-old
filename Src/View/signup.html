@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Src/View/Assets/output.css">
     <link rel="icon" type="image/x-icon" href="./Src/View/Images/Logo.png">
+    <script src="./Src/View/Assets/splash.js"></script>
 </head>
 
 <body class="bg-dark-300 text-white font-main">
-    <div class="w-screen h-screen flex items-center justify-center">
+    <div id="background" class="w-screen h-screen flex items-center justify-center">
         <div class="w-auto h-auto bg-dark-200 p-2 rounded-lg flex flex-col items-center justify-center gap-6">
 
             <a href="{{ url }}" class="w-24 h-8 rounded-md mr-auto text-primary flex items-center justify-center gap-1 duration-200 hover:bg-white/20">
@@ -25,7 +26,7 @@
 
             <div class="mr-1 ml-1 mb-6">
                 <p class="text-3xl mr-auto mb-2 pl-2.5">Cadastre-se</p>
-                <form action="{{ url }}/signup" method="post" class="w-96 flex flex-col items-center justify-center gap-3">
+                <form action="{{ url }}/signup" method="post" class="w-96 flex flex-col items-center justify-center gap-3" onsubmit="showSplash()">
                     <input type="text" name="name" value="{{ name }}" placeholder="Nome de usuário" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="20" autofocus autocomplete="off" required>
                     <input type="email" name="email" value="{{ email }}" placeholder="Email" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="48" required>
                     <input type="password" name="password" placeholder="Digite sua senha" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="255" autocomplete="off" required>
@@ -43,6 +44,9 @@
                 </form>
             </div>
         </div>
+    </div>
+    <div id="splash" class="w-0 h-0 fixed bg-primary top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full flex items-center justify-center duration-1000">
+        <img src="./Src/View/Images/Logo.png" class="w-32">
     </div>
 </body>
 

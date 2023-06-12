@@ -20,6 +20,14 @@ class general {
         echo $ambiente->render("home.html", $this->dados);
     }
 
+    public function showDados() {
+        $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
+
+        $this->dados["user"] = \Src\Lib\Dashboard::queryUser();
+        $this->dados["aven"] = \Src\Lib\Dashboard::queryAventuras();
+        echo $ambiente->render("dados.html", $this->dados);
+    }
+
     public function showAjuda() {
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 

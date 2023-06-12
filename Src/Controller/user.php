@@ -111,12 +111,14 @@ class user {
 
                     $_SESSION['id'] = $user['id'];
 
+                    sleep(3);
                     header("Location: " . URL . "/aventuras");
                 }
                 else {
                     $this->dados["name"] = $nome;
                     $this->dados["alert"] = "Login ou senha incorretos";
 
+                    sleep(3);
                     echo $ambiente->render("login.html", $this->dados);
                 }
             }
@@ -125,6 +127,7 @@ class user {
             $this->dados["name"] = $nome;
             $this->dados["alert"] = "Login ou senha incorretos";
 
+            sleep(3);
             echo $ambiente->render("login.html", $this->dados);
         }
     }
@@ -151,8 +154,8 @@ class user {
                 $this->dados["email"] = $email;
                 $this->dados["alert"] = "Esse nome já está em uso";
     
+                sleep(3);
                 echo $ambiente->render("signup.html", $this->dados);
-    
                 die();
             }
         }
@@ -162,9 +165,9 @@ class user {
                 $this->dados["name"] = $nome;
                 $this->dados["email"] = $email;
                 $this->dados["alert"] = "Esse email já está em uso";
-    
+
+                sleep(3);
                 echo $ambiente->render("signup.html", $this->dados);
-    
                 die();
             }
         }
@@ -174,8 +177,8 @@ class user {
             $this->dados["email"] = $email;
             $this->dados["alert"] = "A senha deve conter pelo menos 8 caracteres";
 
+            sleep(3);
             echo $ambiente->render("signup.html", $this->dados);
-
             die();
         }
 
@@ -184,18 +187,23 @@ class user {
             $this->dados["email"] = $email;
             $this->dados["alert"] = "As senhas não coincidem";
 
+            sleep(3);
             echo $ambiente->render("signup.html", $this->dados);
-
             die();
         }
 
         $senha = password_hash($senha, PASSWORD_DEFAULT);
     
-        $pdo->query("insert into usuario(`nome`, `email`, `senha`) values ('{$nome}', '{$email}', '{$senha}')");
+        $user_id = \Src\Model\Usuario::create($nome, $email, $senha);
 
-        $this->dados["alert"] = "Faça login para acessar sua conta";
+        if(!isset($_SESSION)){
+            session_start();
+        }
+        
+        $_SESSION['id'] = $user_id;
 
-        echo $ambiente->render("login.html", $this->dados);
+        sleep(3);
+        header("Location: " . URL . "/aventuras");
     }
 
     public function save($dados){

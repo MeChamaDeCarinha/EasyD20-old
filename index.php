@@ -101,6 +101,9 @@ $roteador->get("/{ficha_id}/itens/novo", "item:showNovo");
 $roteador->post("/{ficha_id}/itens/novo", "item:new"); //  Função de criar item
 $roteador->get("/{ficha_id}/itens/{item_id}/excluir", "item:delete"); //  Função de deletar item
 
+// Ajuda
+$roteador->group("dados");
+$roteador->get("/", "general:showDados");
 
 // Ajuda
 $roteador->group("ajuda");
