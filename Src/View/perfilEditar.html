@@ -19,9 +19,10 @@
                 <p class="text-xl">Voltar</p>
             </a>
 
-            <div class="mr-1 ml-1 mb-5">
+            <div class="mr-1 ml-1">
                 <form action="{{ url }}/perfil/editar" method="post" enctype="multipart/form-data" class="w-96 flex flex-col items-center justify-center gap-3">
-                    
+                    <p class="text-3xl mr-auto mb-2 pl-2.5">Editar informações da conta</p>
+
                     <label for="file" class="group cursor-pointer flex flex-col items-center justify-center">
                         <img src="../../Src/View/Images/Profiles/{{ usuario.img_path }}" id="img" class="w-32 h-32 group-hover:opacity-50 rounded-full object-cover duration-300">
                         <p class="text-primary text-lg">Envie uma imagem</p>
@@ -38,13 +39,10 @@
 
                     <input type="password" name="password" placeholder="Digite sua senha" class="w-full h-8 mt-2 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="255" autocomplete="off" required>
 
-                    <div class="w-full flex items-center justify-between">
-                        <a href="{{ url }}/perfil/senha" class="ml-2 text-lg text-primary hover:text-primary/80 duration-200">Mudar senha</a>
-                        <input type="submit" value="Salvar" class="w-28 h-8 bg-primary rounded-md text-lg text-dark-300 cursor-pointer duration-200 hover:bg-primary/80">
-                    </div>
+                    <input type="submit" value="Salvar" class="w-28 h-8 ml-auto bg-primary rounded-md text-lg text-dark-300 cursor-pointer duration-200 hover:bg-primary/80">
             
-                    <div class="text-red-600 mt-2 flex flex-row-reverse items-center justify-center gap-1">
-                        <p class="peer text-lg">{{ alert }}</p>
+                    <div class="text-red-600 flex flex-row-reverse items-center justify-center gap-1">
+                        <p class="peer text-lg">A</p>
                         <svg class="w-5 h-5 peer-empty:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
                     </div>
                 </form>

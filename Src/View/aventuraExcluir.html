@@ -18,7 +18,7 @@
                 <p class="text-xl">Voltar</p>
             </a>
 
-            <div class="mr-1 ml-1 mb-6">
+            <div class="mr-1 ml-1">
                 <p class="text-3xl mr-auto mb-2 pl-2.5">Excluir sua aventura</p>
                 <form action="{{ url }}/aventuras/{{ aventura.id }}/excluir" method="post" class="w-96 flex flex-col items-center justify-center gap-3">
                     <div class="flex flex-col justify-center items-center gap-1">
@@ -37,8 +37,8 @@
                         <svg class="w-5 h-5 peer-empty:hidden shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
                     </div>
 
-                    <div class="text-red-600 mt-2 flex flex-row-reverse items-center justify-center gap-1">
-                        <p class="peer text-base text-justify w-4/5">Alerta: Ao excluir uma aventura todos os mapas, fichas, atributos, habilidades e items adjacentes a ele também serão excluídos, essa ação não pode ser desfeita</p>
+                    <div class="text-red-600 flex flex-row-reverse items-center justify-center gap-1">
+                        <p class="peer text-base text-justify w-4/5">Ao excluir uma aventura todos os mapas, fichas, atributos, habilidades e items adjacentes a ele também serão excluídos, essa ação não pode ser desfeita</p>
                         <svg class="w-5 h-5 peer-empty:hidden shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
                     </div>
                 </form>
