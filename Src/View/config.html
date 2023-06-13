@@ -6,6 +6,7 @@
 
 {% block script %}
 <script src="../Src/View/Assets/config.js"></script>
+<script src="../Src/View/Assets/theme.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -35,13 +36,13 @@
             </label>
         </div>
 
-        <!-- <div class="w-full ml-3 flex items-center justify-between gap-3">
+        <div class="w-full ml-3 flex items-center justify-between gap-3">
             <p class="text-xl">Tema escuro</p>
             <label for="tema" class="w-max h-6 mr-3">
-                <input type="checkbox" id="tema" class="peer w-12 h-6 bg-dark-200 checked:bg-primary rounded-full appearance-none duration-300">
+                <input type="checkbox" id="tema" class="peer w-12 h-6 bg-dark-200 checked:bg-primary rounded-full appearance-none duration-300" onchange="changeTheme()">
                 <div class="w-5 h-5 rounded-full bg-white/50 relative bottom-[29px] left-0.5 peer-checked:left-[26px] peer-checked:bg-dark-200 duration-300"></div>
             </label>
-        </div> -->
+        </div>
 
         <p class="text-primary text-2xl w-full pt-1.5 text-center">Ajuda</p>
 
