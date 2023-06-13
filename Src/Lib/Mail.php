@@ -47,7 +47,7 @@ class Mail {
         }
     }
 
-    public static function changePass($usuario) {
+    public static function passRecovery($usuario) {
         \Dotenv\Dotenv::createImmutable("./")->load();
 
         $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
@@ -67,8 +67,8 @@ class Mail {
             $mail->Port       = 587;
 
             //Recipients
-            $mail->setFrom('verify@easyd20.com', 'EasyD20'); // Quem envia
-            $mail->addReplyTo('verify@easyd20.com', 'verify@easyd20.com'); // Quem envia
+            $mail->setFrom('easyd20.contato@gmail.com', 'EasyD20'); // Quem envia
+            $mail->addReplyTo('easyd20.contato@gmail.com', 'EasyD20'); // Quem envia
 
             $mail->addAddress($usuario->email, $usuario->nome); // Quem recebe
             

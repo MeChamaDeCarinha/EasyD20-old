@@ -84,11 +84,22 @@ class user {
             session_start();
         }
 
+        $this->dados["usuario"] = new \Src\Model\Usuario($_SESSION["id"]); 
+
+        echo $ambiente->render("perfilEditar.html", $this->dados);
+    }
+
+    public function showDelete(){
+        $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
+
+        if(!isset($_SESSION)){
+            session_start();
+        }
+
         $user = new \Src\Model\Usuario($_SESSION["id"]);
 
         $this->dados["usuario"] = $user; 
-
-        echo $ambiente->render("perfilEditar.html", $this->dados);
+        echo $ambiente->render("perfilDeletar.html", $this->dados);
     }
 
     public function login($dados){
@@ -365,6 +376,31 @@ class user {
         $usuario->update();
 
         header("Location: " . URL . "/perfil");
+    }
+
+    public function delete($form){
+        $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
+
+        if(!isset($_SESSION)){
+            session_start();
+        }
+
+        $senha = filter_var($form['senha'], FILTER_SANITIZE_STRING);
+        $usuario = new \Src\Model\Usuario($_SESSION["id"]);
+
+        if(!password_verify($senha, $usuario->senha)){
+            $this->dados["alert"] = "Senha incorreta";
+
+            $this->dados["usuario"] = $usuario;
+            echo $ambiente->render("perfilDeletar.html", $this->dados);
+            die();
+        }
+
+        $usuario->delete();
+
+        session_destroy();
+
+        header("Location: " . URL);
     }
 
     public function logout(){

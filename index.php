@@ -101,9 +101,11 @@ $roteador->get("/{ficha_id}/itens/novo", "item:showNovo");
 $roteador->post("/{ficha_id}/itens/novo", "item:new"); //  Função de criar item
 $roteador->get("/{ficha_id}/itens/{item_id}/excluir", "item:delete"); //  Função de deletar item
 
-// Ajuda
+
+// Dados
 $roteador->group("dados");
 $roteador->get("/", "general:showDados");
+
 
 // Ajuda
 $roteador->group("ajuda");
@@ -119,7 +121,20 @@ $roteador->get("/senha", "user:showSenha");
 $roteador->post("/senha", "user:changePass"); // Função de mudar senha da conta
 $roteador->get("/verificar", "user:showVerificar");
 $roteador->post("/verificar", "user:verificar"); // Função de verificar email da conta
+$roteador->get("/deletar", "user:showDelete");
+$roteador->post("/deletar", "user:delete"); // Funcção para deletar conta
+
 $roteador->get("/sair", "user:logout"); // Função de sair da conta
+
+
+// Recuperar
+$roteador->group("recuperar");
+$roteador->get("/", "recuperar:showVerificar");
+$roteador->post("/", "recuperar:verificar"); // Função de verificar código de recuperaração
+$roteador->get("/usuario", "recuperar:showUsuario"); 
+$roteador->post("/usuario", "recuperar:usuarioVerificar"); // Função de verificar se existe conta com o email
+$roteador->get("/senha", "recuperar:showRecuperar");
+$roteador->post("/senha", "recuperar:recuperar"); // Função de mudar a senha
 
 
 // Erro
@@ -129,6 +144,6 @@ $roteador->get("/{error}", "error:show");
 
 $roteador->dispatch();
 
-if($roteador->error()) {
-    $roteador->redirect("/error/{$roteador->error()}");
-}
+// if($roteador->error()) {
+//     $roteador->redirect("/error/{$roteador->error()}");
+// }

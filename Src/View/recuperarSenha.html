@@ -2,11 +2,11 @@
 <html lang="pt-br">
 
 <head>
-    <title>EasyD20 - Mudar senha</title>
+    <title>EasyD20 - Recuperar senha</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Src/View/Assets/output.css">
-    <link rel="icon" type="image/x-icon" href="../Src/View/Images/Logo.png">
+    <link rel="stylesheet" href="../../Src/View/Assets/output.css">
+    <link rel="icon" type="image/x-icon" href="../../Src/View/Images/Logo.png">
 </head>
 
 <body class="bg-dark-300 text-white font-main">
@@ -19,12 +19,11 @@
             </a>
 
             <div class="mr-1 ml-1">
-                <form action="{{ url }}/perfil/senha" method="post" class="w-96 flex flex-col items-center justify-center gap-3">
-                    <p class="text-3xl mr-auto mb-2 pl-2.5">Mudar senha</p>
-                    <img src="../../Src/View/Images/Profiles/{{ usuario.img_path }}" id="img" class="w-32 h-32 group-hover:opacity-50 rounded-full object-cover duration-300">
+                <form action="{{ url }}/recuperar/senha" method="post" class="w-96 flex flex-col items-center justify-center gap-3">
+                    <p class="text-3xl mr-auto mb-2 pl-2.5">Recuperar senha</p>
+                    <img src="../../../Src/View/Images/Profiles/{{ usuario.img_path }}" id="img" class="w-32 h-32 group-hover:opacity-50 rounded-full object-cover duration-300">
                     <p class="text-3xl text-primary">{{ usuario.nome }}</p>
 
-                    <input type="password" name="pass" placeholder="Digite sua senha atual" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="255" autocomplete="off" required>
                     <input type="password" name="password" placeholder="Digite a nova senha" class="w-full h-8 mt-2 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="255" autocomplete="off" required>
                     <input type="password" name="passverify" placeholder="Digite repita a senha" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="255" autocomplete="off" required>
 

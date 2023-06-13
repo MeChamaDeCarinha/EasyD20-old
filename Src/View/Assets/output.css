@@ -1264,8 +1264,18 @@ video {
   background-color: rgb(188 119 214 / var(--tw-bg-opacity));
 }
 
+.bg-red-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+}
+
 .bg-white\/50 {
   background-color: rgb(234 234 234 / 0.5);
+}
+
+.bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
 .object-contain {
@@ -1690,6 +1700,10 @@ video {
 
 .hover\:bg-yellow-400\/20:hover {
   background-color: rgb(250 204 21 / 0.2);
+}
+
+.hover\:bg-red-500\/80:hover {
+  background-color: rgb(239 68 68 / 0.8);
 }
 
 .hover\:text-primary:hover {
