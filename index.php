@@ -144,6 +144,6 @@ $roteador->get("/{error}", "error:show");
 
 $roteador->dispatch();
 
-// if($roteador->error()) {
-//     $roteador->redirect("/error/{$roteador->error()}");
-// }
+if($roteador->error()) {
+    $roteador->redirect("/error/{$roteador->error()}");
+}

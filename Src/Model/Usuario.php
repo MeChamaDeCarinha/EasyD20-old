@@ -45,38 +45,33 @@ class Usuario {
 
         $result = $pdo->query("select * from aventura_usuario where cod_usuario = {$this->id}", PDO::FETCH_ASSOC);
         foreach($result as $aventura){
-            echo "a";
-            var_dump($aventura);
-
-            if($aventura["mestre"] == 0){
-                $pdo->query("delete from aventura_usuario where cod_usuario = {$this->id} and cod_aventura = {$aventura['id']}");
+            if(!$aventura["mestre"]){
+                $pdo->query("delete from aventura_usuario where cod_usuario = {$this->id} and cod_aventura = {$aventura['cod_aventura']}");
             }
+            else {
+                $quantidade = $pdo->query("select id from aventura_usuario where cod_aventura = {$aventura['cod_aventura']}", PDO::FETCH_ASSOC);
 
-            // $quantidade = $pdo->query("select id from aventura_usuario where cod_usuario = {$this->id} and cod_aventura = {$aventura['id']}", PDO::FETCH_ASSOC);
-            
-            // foreach($quantidade as $numero){
-            //     $aventura = new \Src\Model\Aventura($numero["id"]);
-            //     if($aventura->jogadores == 1){
-            //         $aventura->delete();
-            //     }
-            // }
+                if($quantidade->rowCount() == 1){
+                    $av = new \Src\Model\Aventura($aventura['cod_aventura']);
+                    $pdo->query("delete from aventura_usuario where cod_usuario = {$this->id} and cod_aventura = {$av->id}");
+                    $av->delete();
+                }
+                else {
+                    $resultUsuarios = $pdo->query("select cod_usuario from aventura_usuario where cod_aventura = {$aventura['cod_aventura']} and mestre = 0  ", PDO::FETCH_ASSOC);
+                    foreach($resultUsuarios as $user){
+                        $users[$user["cod_usuario"]] = $user["cod_usuario"];
+                    }
 
-            
-            // else {
-            //     $resultUsuarios = $pdo->query("select id from aventura_usuario where cod_aventura = {$aventura['id']}", PDO::FETCH_ASSOC);
-            //     foreach($resultUsuarios as $usuario){
-            //         $users[$usuario["id"]] = new \Src\Model\Usuario($usuario["id"]);
-            //     }
+                    $random_user = array_rand($users);
 
-            //     $random_user = array_rand($users, 1);
+                    $pdo->query("update aventura_usuario set mestre = 1 where cod_usuario = {$random_user} and cod_aventura = {$aventura['cod_aventura']}");
 
-            //     $pdo->query("update aventura_usuario set mestre = 1 where cod_usuario = {$random_user} and cod_aventura = {$aventura['id']}");
-                
-            //     $pdo->query("delete from aventura_usuario where cod_usuario = {$this->id} and cod_aventura = {$aventura['id']}");
-            // }
+                    $pdo->query("delete from aventura_usuario where cod_usuario = {$this->id} and cod_aventura = {$aventura['cod_aventura']}");
+                }
+            }
         }
 
-        // $pdo->query("delete from usuario where id = {$this->id}");
+        $pdo->query("delete from usuario where id = {$this->id}");
     }
 
     public static function create($nome, $email, $senha){

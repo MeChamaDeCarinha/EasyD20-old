@@ -398,9 +398,9 @@ class user {
 
         $usuario->delete();
 
-        //session_destroy();
+        session_destroy();
 
-        //header("Location: " . URL);
+        header("Location: " . URL);
     }
 
     public function logout(){
