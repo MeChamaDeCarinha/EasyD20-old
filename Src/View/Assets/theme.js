@@ -11,12 +11,12 @@ if (userTheme === "dark") {
 }
 
 window.onload = (function () {
-    if(document.getElementById("colorCheckbox")){
+    if(document.getElementById("tema")){
         if (userTheme === "dark") {
-            document.getElementById("colorCheckbox").checked = true;
+            document.getElementById("tema").checked = true;
         }
         else {
-            document.getElementById("colorCheckbox").checked = false;
+            document.getElementById("tema").checked = false;
         }
     }
 });
