@@ -26,8 +26,8 @@ class Mail {
             $mail->Port       = 587;
 
             //Recipients
-            $mail->setFrom('verify@easyd20.com', 'EasyD20'); // Quem envia
-            $mail->addReplyTo('verify@easyd20.com', 'verify@easyd20.com'); // Quem envia
+            $mail->setFrom('easyd20.contato@gmail.com', 'EasyD20'); // Quem envia
+            $mail->addReplyTo('easyd20.contato@gmail.com', 'EasyD20'); // Quem envia
 
             $mail->addAddress($usuario->email, $usuario->nome); // Quem recebe
             
@@ -35,8 +35,8 @@ class Mail {
             $mail->isHTML(true);
             $mail->Subject = 'Verificar email';
             $mail->Body    = "
-                <a href='{ $url }' style='font-size:26px;color:#bc77d6;text-decoration:none'>EasyD20</a>
-                <p style=font-size:22px>Seu código de verificação é: <span style='color:#bc77d6'>{$codigo}</span><br><span style='color:#000000'>Caso não tenha sido você ignore este email.</span></p>
+                <a href='{ $url }' style='font-size:26px;color:#AF5AD1;text-decoration:none'>EasyD20</a>
+                <p style=font-size:22px>Seu código de verificação é: <span style='color:#AF5AD1'>{$codigo}</span><br><span style='color:#000000'>Caso não tenha sido você ignore este email.</span></p>
                 ";
             $mail->AltBody = 'Seu email não possui suporte para HTML';
 
@@ -76,8 +76,8 @@ class Mail {
             $mail->isHTML(true);
             $mail->Subject = 'Código de recuperação';
             $mail->Body    = "
-                <a href='{ $url }' style='font-size:26px;color:#bc77d6;text-decoration:none'>EasyD20</a>
-                <p style=font-size:22px>Seu código de recuperação é: <span style='color:#bc77d6'>{$codigo}</span><br><span style='color:#000000'>Caso não tenha sido você ignore este email.</span></p>
+                <a href='{ $url }' style='font-size:26px;color:#AF5AD1;text-decoration:none'>EasyD20</a>
+                <p style=font-size:22px>Seu código de recuperação é: <span style='color:#AF5AD1'>{$codigo}</span><br><span style='color:#000000'>Caso não tenha sido você ignore este email.</span></p>
                 ";
             $mail->AltBody = 'Seu email não possui suporte para HTML';
 

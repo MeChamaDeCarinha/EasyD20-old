@@ -11,8 +11,8 @@ function sleep(ms) {
 }
 
 async function showSplash() {
-    splash.style.width = "2000px";
-    splash.style.height = "2000px";
+    splash.style.width = "2500px";
+    splash.style.height = "2500px";
     await sleep(2600);
     background.style.display = "none";
     splash.style.width = "50px";
