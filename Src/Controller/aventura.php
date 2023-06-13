@@ -74,6 +74,15 @@ class aventura {
 
         session_start();
         $player_id = $_SESSION["id"];
+
+        $usuario = new \Src\Model\Usuario($player_id);
+        if(!$usuario->verificado){
+            $this->dados["alert"] = "Somente para usuários verificados";
+        
+            echo $ambiente->render("aventuraCriar.html", $this->dados);
+            die();
+        }
+
         $aventura_nome = filter_var($form["name"], FILTER_SANITIZE_STRING);
         $aventura_livro = filter_var($form["livro"], FILTER_SANITIZE_STRING);
         $aventura_descricao = filter_var($form["descricao"], FILTER_SANITIZE_STRING);
@@ -387,6 +396,15 @@ class aventura {
 
         if($usuario->nome != $jogador_nome){
             $this->dados["alert"] = "O nome não coincide";
+            $this->dados["aventura"] = $aventura;
+            $this->dados["usuario"] = $usuario;
+            echo $ambiente->render("aventuraMestre.html", $this->dados);
+            die();
+        }
+
+        if(!$usuario->verificado){
+            $this->dados["alert"] = "Usuário não verificado";
+
             $this->dados["aventura"] = $aventura;
             $this->dados["usuario"] = $usuario;
             echo $ambiente->render("aventuraMestre.html", $this->dados);

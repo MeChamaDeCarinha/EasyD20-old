@@ -21,7 +21,7 @@
             <div class="mr-1 ml-1">
                 <p class="text-3xl mr-auto mb-2 pl-2.5">Entre em uma aventura</p>
                 <form action="{{ url }}/aventuras/entrar" method="post" class="w-96 flex flex-col items-center justify-center gap-3">
-                    <input type="tel" name="codigo" value="{{ aventura_cod }}" placeholder="Código da aventura" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="6" autofocus autocomplete="off" required>
+                    <input type="tel" name="codigo" placeholder="Código da aventura" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="6" autofocus autocomplete="off" required>
                     
                     <div class="w-full flex items-center">
                         <a href="{{ url }}/aventuras/criar" class="ml-3 text-primary text-lg duration-200 hover:text-primary/80">Crie sua aventura</a>
