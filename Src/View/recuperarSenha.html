@@ -7,13 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../Src/View/Assets/output.css">
     <link rel="icon" type="image/x-icon" href="../../Src/View/Images/Logo.png">
+    <script src="../../Src/View/Assets/onLoad.js"></script>
 </head>
 
-<body class="bg-dark-300 text-white font-main">
+<body class="bg-light-300 dark:bg-dark-300 text-white2 dark:text-white font-main">
     <div class="w-screen h-screen flex items-center justify-center">
-        <div class="w-auto h-auto bg-dark-200 p-2 rounded-lg flex flex-col items-center justify-center gap-6">
+        <div class="w-auto h-auto bg-light-200 dark:bg-dark-200 p-2 rounded-lg flex flex-col items-center justify-center gap-6">
 
-            <a href="{{ url }}/settings" class="w-24 h-8 rounded-md mr-auto text-primary flex items-center justify-center gap-1 duration-200 hover:bg-white/20">
+            <a href="{{ url }}/settings" class="w-24 h-8 rounded-md mr-auto text-primary2 dark:text-primary flex items-center justify-center gap-1 duration-200 hover:bg-white2/20 dark:hover:bg-white/20">
                 <svg class="w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" x2="5" y1="12" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                 <p class="text-xl">Voltar</p>
             </a>
@@ -22,12 +23,12 @@
                 <form action="{{ url }}/recuperar/senha" method="post" class="w-96 flex flex-col items-center justify-center gap-3">
                     <p class="text-3xl mr-auto mb-2 pl-2.5">Recuperar senha</p>
                     <img src="../../../Src/View/Images/Profiles/{{ usuario.img_path }}" id="img" class="w-32 h-32 group-hover:opacity-50 rounded-full object-cover duration-300">
-                    <p class="text-3xl text-primary">{{ usuario.nome }}</p>
+                    <p class="text-3xl text-primary2 dark:text-primary">{{ usuario.nome }}</p>
 
-                    <input type="password" name="password" placeholder="Digite a nova senha" class="w-full h-8 mt-2 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="255" autocomplete="off" required>
-                    <input type="password" name="passverify" placeholder="Digite repita a senha" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="255" autocomplete="off" required>
+                    <input type="password" name="password" placeholder="Digite a nova senha" class="w-full h-8 mt-2 text-light-300 dark:text-dark-300 placeholder-light-300/60 dark:placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white2/95 dark:focus:bg-white/95" maxlength="255" autocomplete="off" required>
+                    <input type="password" name="passverify" placeholder="Digite repita a senha" class="w-full h-8 text-light-300 dark:text-dark-300 placeholder-light-300/60 dark:placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white2/95 dark:focus:bg-white/95" maxlength="255" autocomplete="off" required>
 
-                    <input type="submit" value="Confirmar" class="w-28 h-8 ml-auto bg-primary rounded-md text-lg text-dark-300 cursor-pointer duration-200 hover:bg-primary/80">
+                    <input type="submit" value="Confirmar" class="w-28 h-8 ml-auto bg-primary2 dark:bg-primary rounded-md text-lg text-light-300 dark:text-dark-300 cursor-pointer duration-200 hover:bg-primary2/80 dark:hover:bg-primary/80">
 
                     <div class="text-red-600 flex flex-row-reverse items-center justify-center gap-1">
                         <p class="peer text-lg">{{ alert }}</p>

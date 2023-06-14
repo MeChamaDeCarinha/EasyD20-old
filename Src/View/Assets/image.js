@@ -3,12 +3,6 @@ var select;
 var preview;
 var reader = new FileReader();
 
-window.onload = (function () {
-    img = document.querySelector('img').src;
-    select = document.getElementById('imagem');
-    preview = document.querySelector('img');
-});
-
 function previewImage() {
     var file = document.querySelector('input[type=file]').files[0];
 

@@ -7,14 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../Src/View/Assets/output.css">
     <link rel="icon" type="image/x-icon" href="../../Src/View/Images/Logo.png">
+    <script src="../../Src/View/Assets/onLoad.js"></script>
     <script src="../../Src/View/Assets/image.js"></script>
 </head>
 
-<body class="bg-dark-300 text-white font-main">
+<body class="bg-light-300 dark:bg-dark-300 text-white2 dark:text-white font-main">
     <div class="w-screen h-screen flex items-center justify-center">
-        <div class="w-auto h-auto bg-dark-200 p-2 rounded-lg flex flex-col items-center justify-center gap-6">
+        <div class="w-auto h-auto bg-light-200 dark:bg-dark-200 p-2 rounded-lg flex flex-col items-center justify-center gap-6">
 
-            <a href="{{ url }}/aventuras/{{ aventura.id }}" class="w-24 h-8 rounded-md mr-auto text-primary flex items-center justify-center gap-1 duration-200 hover:bg-white/20">
+            <a href="{{ url }}/aventuras/{{ aventura.id }}" class="w-24 h-8 rounded-md mr-auto text-primary2 dark:text-primary flex items-center justify-center gap-1 duration-200 hover:bg-white2/20 dark:hover:bg-white/20">
                 <svg class="w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" x2="5" y1="12" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                 <p class="text-xl">Voltar</p>
             </a>
@@ -24,7 +25,7 @@
                 <form action="{{ url }}/aventuras/{{ aventura.id }}/editar" method="post" enctype="multipart/form-data" class="w-96 flex flex-col items-center justify-center gap-3">
                     <label for="file" class="group cursor-pointer flex flex-col items-center justify-center">
                         <img src="../../Src/View/Images/Cards/{{ aventura.imagem }}" id="img" class="w-96 h-28 rounded-md object-cover group-hover:opacity-50 duration-300">
-                        <p class="text-primary text-lg">Envie uma imagem</p>
+                        <p class="text-primary2 dark:text-primary text-lg">Envie uma imagem</p>
                     </label>
                     <input type="file" name="file" id="file" class="hidden" onchange="previewImage()">
                     
@@ -57,7 +58,7 @@
                     </select>
                     
                     <div class="w-full flex items-center">
-                        <input type="submit" value="Salvar" class="w-28 h-8 bg-primary ml-auto rounded-md text-lg text-dark-300 cursor-pointer duration-200 hover:bg-primary/80">
+                        <input type="submit" value="Salvar" class="w-28 h-8 bg-primary2 dark:bg-primary ml-auto rounded-md text-lg text-light-300 dark:text-dark-300 cursor-pointer duration-200 hover:bg-primary2/80 dark:hover:bg-primary/80">
                     </div>
             
                     <div class="text-red-600 flex flex-row-reverse items-center justify-center gap-1">

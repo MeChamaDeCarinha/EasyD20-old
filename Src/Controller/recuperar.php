@@ -166,6 +166,7 @@ class recuperar {
         $usuario->update();
 
         $_SESSION["id"] = $usuario->id;
+        $_SESSION['splash'] = 1;
 
         header("Location: " . URL . "/aventuras");
     }

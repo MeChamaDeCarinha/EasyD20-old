@@ -15,7 +15,10 @@ class aventura {
 
         session_start();
         $player_id = $_SESSION["id"];
-
+        if(isset($_SESSION["splash"])){
+            unset($_SESSION["splash"]);
+            $this->dados["splash"] = 1;
+        }
 
         $result = $pdo->query("select cod_aventura from aventura_usuario where cod_usuario = {$player_id} and banido = 0", PDO::FETCH_ASSOC);
 

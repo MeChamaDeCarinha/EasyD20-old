@@ -7,23 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Src/View/Assets/output.css">
     <link rel="icon" type="image/x-icon" href="./Src/View/Images/Logo.png">
+    <script src="../../Src/View/Assets/onLoad.js"></script>
 </head>
 
-<body class="bg-dark-100 text-white font-main w-f">
-    <header class="fixed top-0 w-full h-14 bg-dark-300 p-3 border-b-primary border-b-2 flex items-center">
+<body class="bg-light-100 dark:bg-dark-100 text-white2 dark:text-white font-main w-f">
+    <header class="fixed top-0 w-full h-14 bg-light-300 dark:bg-dark-300 p-3 border-b-primary2 dark:border-b-primary border-b-2 flex items-center">
         <a href="{{ url }}" class="flex items-center justify-center gap-2">
             <img src="./Src/View/Images/Logo.png" class="w-10">
             <p class="text-xl">EasyD20</p>
         </a>
         {% if user %}
         <div class="text-center ml-auto flex items-center justify-center gap-3">
-            <a href="{{ url }}/aventuras" class="w-40 h-8 bg-dark-100 rounded-md text-xl hover:bg-white/20 flex items-center justify-center">Dashboard</a>
+            <a href="{{ url }}/aventuras" class="w-40 h-8 bg-light-100 dark:bg-dark-100 rounded-md text-xl hover:bg-white2/20 dark:hover:bg-white/20 flex items-center justify-center">Dashboard</a>
             <a href="{{ url }}/perfil" class="w-8 h-8"><img src="Src/View/Images/Profiles/{{ user.img_path }}" class="w-8 h-8 rounded-full object-cover"></a>
         </div>
         {% else %}
         <div class="text-center ml-auto flex items-center justify-center gap-3">
-            <a href="{{ url }}/login" class="w-28 h-8 bg-dark-100 rounded-md text-xl hover:bg-white/20 flex items-center justify-center md:w-40">Entre</a>
-            <a href="{{ url }}/signup" class="w-28 h-8 bg-dark-100 rounded-md text-xl hover:bg-white/20 flex items-center justify-center md:w-40">Cadastre-se</a>
+            <a href="{{ url }}/login" class="w-28 h-8 bg-light-100 dark:bg-dark-100 rounded-md text-xl hover:bg-white2/20 dark:hover:bg-white/20 flex items-center justify-center md:w-40">Entre</a>
+            <a href="{{ url }}/signup" class="w-28 h-8 bg-light-100 dark:bg-dark-100 rounded-md text-xl hover:bg-white2/20 dark:hover:bg-white/20 flex items-center justify-center md:w-40">Cadastre-se</a>
         </div>
         {% endif %}
         
@@ -31,71 +32,71 @@
     <main class="w-full flex flex-col items-center justify-center">
         <div class="w-full flex h-screen flex-col items-center justify-center">
             <img src="./Src/View/Images/Logo.png" class="w-52">
-            <p class="text-4xl text-primary md:text-5xl">Bem-vindo a EasyD20</p>
+            <p class="text-4xl text-primary2 dark:text-primary md:text-5xl">Bem-vindo a EasyD20</p>
         </div>
         <div class="w-4/5 flex flex-col items-center justify-center gap-10 md:flex-row">
             <img src="./Src/View/Images/About.png" class="rounded-md">
             <div class="flex flex-col items-center justify-center gap-5">
-                <p class="text-primary text-5xl">Sobre nós</p>
+                <p class="text-primary2 dark:text-primary text-5xl">Sobre nós</p>
                 <p class="text-2xl text-center">O projeto EasyD20 visa facilitar os jogos de RPG para todos, tanto no ambito virtual como no físico. Auxiliando na organização e no funcionamento geral da aventura, permitindo que usuários criem suas aventuras personalizadas ou participem das aventuras de outros.</p>
             </div>
         </div>
         <div class="w-full h-40"></div>
-        <div class="w-full bg-dark-300 border-white border-2 flex flex-col md:flex-row">
-            <div class="w-full h-1/3 p-3 border-white first:border-b-2 last:border-t-2 md:first:border-r-2 md:first:border-b-0 md:last:border-l-2 md:last:border-t-0 flex items-center justify-center gap-3">
-                <svg class="w-28 h-28 text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17v2a2 2 0 0 1-2 2v0a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v3h3"></path><path d="M22 17v2a2 2 0 0 1-2 2H8"></path><path d="M19 17V5a2 2 0 0 0-2-2H4"></path><path d="M22 17H10"></path></svg>
+        <div class="w-full bg-light-300 dark:bg-dark-300 border-white2 dark:border-white border-2 flex flex-col md:flex-row">
+            <div class="w-full h-1/3 p-3 border-white2 dark:border-white first:border-b-2 last:border-t-2 md:first:border-r-2 md:first:border-b-0 md:last:border-l-2 md:last:border-t-0 flex items-center justify-center gap-3">
+                <svg class="w-28 h-28 text-primary2 dark:text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17v2a2 2 0 0 1-2 2v0a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v3h3"></path><path d="M22 17v2a2 2 0 0 1-2 2H8"></path><path d="M19 17V5a2 2 0 0 0-2-2H4"></path><path d="M22 17H10"></path></svg>
                 <div class="w-2/3 flex flex-col items-center justify-center gap-2">
                     <p class="text-center text-4xl">Fichas</p>
-                    <div class="w-full h-0.5 bg-primary"></div>
+                    <div class="w-full h-0.5 bg-primary2 dark:bg-primary"></div>
                     <p class="p-1 text-center text-lg">Uma nova forma de ver e editar suas fichas está aqui!</p>
                 </div>
             </div>
-            <div class="w-full h-1/3 p-3 border-white first:border-b-2 last:border-t-2 md:first:border-r-2 md:first:border-b-0 md:last:border-l-2 md:last:border-t-0 flex items-center justify-center gap-3">
-                <svg class="w-28 h-28 text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+            <div class="w-full h-1/3 p-3 border-white2 dark:border-white first:border-b-2 last:border-t-2 md:first:border-r-2 md:first:border-b-0 md:last:border-l-2 md:last:border-t-0 flex items-center justify-center gap-3">
+                <svg class="w-28 h-28 text-primary2 dark:text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
                 <div class="w-2/3 flex flex-col items-center justify-center gap-2">
                     <p class="text-center text-4xl">Mapas</p>
-                    <div class="w-full h-0.5 bg-primary"></div>
+                    <div class="w-full h-0.5 bg-primary2 dark:bg-primary"></div>
                     <p class="p-1 text-center text-lg">Aventure e desvende os segredos de diversos mapas!</p>
                 </div>
             </div>
-            <div class="w-full h-1/3 p-3 border-white first:border-b-2 last:border-t-2 md:first:border-r-2 md:first:border-b-0 md:last:border-l-2 md:last:border-t-0 flex items-center justify-center gap-3">
-                <svg class="w-28 h-28 text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"></path><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path><path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"></path><path d="M8 10h8"></path><path d="M8 18h8"></path></svg>
+            <div class="w-full h-1/3 p-3 border-white2 dark:border-white first:border-b-2 last:border-t-2 md:first:border-r-2 md:first:border-b-0 md:last:border-l-2 md:last:border-t-0 flex items-center justify-center gap-3">
+                <svg class="w-28 h-28 text-primary2 dark:text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"></path><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path><path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"></path><path d="M8 10h8"></path><path d="M8 18h8"></path></svg>
                 <div class="w-2/3 flex flex-col items-center justify-center gap-2">
                     <p class="text-center text-4xl">Inventário</p>
-                    <div class="w-full h-0.5 bg-primary"></div>
+                    <div class="w-full h-0.5 bg-primary2 dark:bg-primary"></div>
                     <p class="p-1 text-center text-lg">Encha seu inventário o máximo que conseguir</p>
                 </div>
             </div>
         </div>
         <div class="w-full h-40"></div>
         <div class="w-full flex flex-col items-center justify-center gap-6">
-            <p class="text-primary text-4xl md:text-6xl">Comece agora mesmo</p>
+            <p class="text-primary2 dark:text-primary text-4xl md:text-6xl">Comece agora mesmo</p>
             <img src="./Src/View/Images/GatoPidao.png" class="w-5/6 rounded-xl md:w-2/5">
-            <a href="{{ url }}/signup" class="w-60 h-10 bg-primary hover:bg-primary/80 text-dark-300 text-3xl md:text-2xl rounded-lg flex items-center justify-center">Crie sua conta</a>
+            <a href="{{ url }}/signup" class="w-60 h-10 bg-primary2 dark:bg-primary hover:bg-primary2/80 dark:hover:bg-primary/80 text-light-300 dark:text-dark-300 text-3xl md:text-2xl rounded-lg flex items-center justify-center">Crie sua conta</a>
         </div>
         <div class="w-full h-40"></div>
         <div class="flex flex-col items-center justify-center gap-5">
-            <p class="text-primary text-center text-4xl md:text-5xl">Motivo da criação do EasyD20</p>
+            <p class="text-primary2 dark:text-primary text-center text-4xl md:text-5xl">Motivo da criação do EasyD20</p>
             <p class="w-4/5 text-center text-xl md:text-2xl">Sempre foi muito claro para todos que jogam RPG que começar ou jogar uma aventura pode ser um pouco "assustador" para novatos, principalmente se não tiverem o auxílio de um veterano, então decidimos que seria apropriado criar um projeto para atender a esse público e também ajudar os mestres mais experientes a jogar suas aventuras de forma mais divertida, eficiente e intuitiva.</p>
         </div>
     </main>
-    <footer class="w-full md:h-52 mt-32 bg-neutral-950 flex flex-wrap flex-col md:flex-row">
+    <footer class="w-full md:h-52 mt-32 bg-neutral-800 flex flex-wrap flex-col md:flex-row">
         <div class="w-screen md:w-1/3 h-52 md:h-full flex flex-col items-center justify-center gap-5">
             <img src="./Src/View/Images/Logo.png" class="w-24 h-24">
             <div class="flex items-center justify-center gap-6">
-                <a href="https://discord.gg/xSny3Aw52p" target="_blank" class="p-2 hover:bg-white/10 rounded-full duration-200"><img src="./Src/View/Images/Discord.png" class="w-10 h-10"></a>
-                <a href="https://instagram.com/easyD20_" target="_blank" class="p-2 hover:bg-white/10 rounded-full duration-200"><img src="./Src/View/Images/Instagram.png" class="w-10 h-10"></a>
-                <a href="https://twitter.com/easyD20_" target="_blank" class="p-2 hover:bg-white/10 rounded-full duration-200"><img src="./Src/View/Images/Twitter.png" class="w-10 h-10"></a>
+                <a href="https://discord.gg/xSny3Aw52p" target="_blank" class="p-2 hover:bg-white2/10 dark:hover:bg-white/10 rounded-full duration-200"><img src="./Src/View/Images/Discord.png" class="w-10 h-10"></a>
+                <a href="https://instagram.com/easyD20_" target="_blank" class="p-2 hover:bg-white2/10 dark:hover:bg-white/10 rounded-full duration-200"><img src="./Src/View/Images/Instagram.png" class="w-10 h-10"></a>
+                <a href="https://twitter.com/easyD20_" target="_blank" class="p-2 hover:bg-white2/10 dark:hover:bg-white/10 rounded-full duration-200"><img src="./Src/View/Images/Twitter.png" class="w-10 h-10"></a>
             </div>
         </div>
-        <div class="w-screen md:w-1/3 h-52 md:h-full border-white border-t-2 border-b-2 md:border-l-2 md:border-r-2 md:border-t-0 md:border-b-0 flex flex-col items-center justify-center">
-            <p class="text-3xl pb-6 text-primary">Criadores</p>
-            <p class="text-xl">Leonardo Santos de Freitas</p>
-            <p class="text-xl">Luiz Felipe Galbiatti Silveira</p>
-            <p class="text-xl">Rafael Queiroz Rodrigues Libralão</p>
+        <div class="w-screen md:w-1/3 h-52 md:h-full border-white2 dark:border-white border-t-2 border-b-2 md:border-l-2 md:border-r-2 md:border-t-0 md:border-b-0 flex flex-col items-center justify-center">
+            <p class="text-3xl pb-6 text-primary dark:text-primary">Criadores</p>
+            <p class="text-xl text-white">Leonardo Santos de Freitas</p>
+            <p class="text-xl text-white">Luiz Felipe Galbiatti Silveira</p>
+            <p class="text-xl text-white">Rafael Queiroz Rodrigues Libralão</p>
         </div>
         <div class="w-screen md:w-1/3 h-52 md:h-full flex flex-col items-center justify-center">
-            <p class="text-3xl pb-6 text-primary">Colaboradores</p>
+            <p class="text-3xl pb-6  text-primary2 dark:text-primary">Colaboradores</p>
             <img src="./Src/View/Images/Etec.png" class="w-72">
         </div>
     </footer>

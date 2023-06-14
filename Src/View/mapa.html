@@ -7,21 +7,21 @@
 {% block content %}
 <div class="h-screen w-full p-[78px] pl-30 pr-30 flex  justify-center flex-wrap row gap-6 shrink-0">
 
-    <div class="group w-14 h-max text-primary rounded-xl p-2 bg-dark-300 overflow-hidden flex flex-col items-center gap-2">
-        <a href="{{ url }}/mapas" class="w-10 h-10 rounded-md hover:bg-white/10 flex items-center justify-center duration-500">
+    <div class="group w-14 h-max text-primary2 dark:text-primary rounded-xl p-2 bg-light-300 dark:bg-dark-300 overflow-hidden flex flex-col items-center gap-2">
+        <a href="{{ url }}/mapas" class="w-10 h-10 rounded-md hover:bg-white2/10 dark:hover:bg-white/10 flex items-center justify-center duration-500">
             <svg class="w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="19" x2="5" y1="12" y2="12"></line>
                 <polyline points="12 19 5 12 12 5"></polyline>
             </svg>
         </a>
         {% if user_id == mestre_id %}
-        <a href="{{ url }}/mapas/{{ mapa.id }}/editar" class="w-10 h-10 rounded-md hover:bg-white/10 flex items-center justify-center duration-500">
+        <a href="{{ url }}/mapas/{{ mapa.id }}/editar" class="w-10 h-10 rounded-md hover:bg-white2/10 dark:hover:bg-white/10 flex items-center justify-center duration-500">
             <svg class="w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 20h9"></path>
                 <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
             </svg>
         </a>
-        <a href="{{ url }}/mapas/{{ mapa.id }}/esconder" class="w-10 h-10 rounded-md hover:bg-white/10 flex items-center justify-center duration-500">
+        <a href="{{ url }}/mapas/{{ mapa.id }}/esconder" class="w-10 h-10 rounded-md hover:bg-white2/10 dark:hover:bg-white/10 flex items-center justify-center duration-500">
             {% if mapa.hidden %}
             <svg class="w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
@@ -38,9 +38,9 @@
         </a>
         {% endif %}
     </div>
-    <div class="group w-4/6 h-[422px] rounded-xl bg-dark-200 hover:bg-dark-300 duration-300 delay-300 overflow-hidden flex flex-col">
+    <div class="group w-4/6 h-[422px] rounded-xl bg-light-200 dark:bg-dark-200 hover:bg-light-300 dark:hover:bg-dark-300 duration-300 delay-300 overflow-hidden flex flex-col">
         <img src="../Src/View/Images/Maps/{{ mapa.img_path }}" class="group w-full h-full object-contain">
-        <div class="relative bottom-14 w-full bg-dark-200/40 text-center opacity-0 group-hover:opacity-100 duration-300 delay-300">
+        <div class="relative bottom-14 w-full bg-light-200/40 dark:bg-dark-200/40 text-center opacity-0 group-hover:opacity-100 duration-300 delay-300">
             <p class="text-2xl line-clamp-1">{{ mapa.nome }}</p>
             {% if mapa.descricao %}
             <p class="line-clamp-1">{{ mapa.descricao }}</p>

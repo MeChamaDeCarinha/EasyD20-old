@@ -28,11 +28,11 @@ class general {
         echo $ambiente->render("dados.html", $this->dados);
     }
 
-    public function showAjuda() {
+    public function showTutorial() {
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $this->dados["user"] = \Src\Lib\Dashboard::queryUser();
         $this->dados["aven"] = \Src\Lib\Dashboard::queryAventuras();
-        echo $ambiente->render("ajuda.html", $this->dados);
+        echo $ambiente->render("tutorial.html", $this->dados);
     }
 }

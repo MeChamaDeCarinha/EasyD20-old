@@ -121,15 +121,14 @@ class user {
                     }
 
                     $_SESSION['id'] = $user['id'];
+                    $_SESSION['splash'] = 1;
 
-                    sleep(3);
                     header("Location: " . URL . "/aventuras");
                 }
                 else {
                     $this->dados["name"] = $nome;
                     $this->dados["alert"] = "Login ou senha incorretos";
 
-                    sleep(3);
                     echo $ambiente->render("login.html", $this->dados);
                 }
             }
@@ -138,7 +137,6 @@ class user {
             $this->dados["name"] = $nome;
             $this->dados["alert"] = "Login ou senha incorretos";
 
-            sleep(3);
             echo $ambiente->render("login.html", $this->dados);
         }
     }
@@ -165,7 +163,6 @@ class user {
                 $this->dados["email"] = $email;
                 $this->dados["alert"] = "Esse nome já está em uso";
     
-                sleep(3);
                 echo $ambiente->render("signup.html", $this->dados);
                 die();
             }
@@ -177,7 +174,6 @@ class user {
                 $this->dados["email"] = $email;
                 $this->dados["alert"] = "Esse email já está em uso";
 
-                sleep(3);
                 echo $ambiente->render("signup.html", $this->dados);
                 die();
             }
@@ -188,7 +184,6 @@ class user {
             $this->dados["email"] = $email;
             $this->dados["alert"] = "A senha deve conter pelo menos 8 caracteres";
 
-            sleep(3);
             echo $ambiente->render("signup.html", $this->dados);
             die();
         }
@@ -198,7 +193,6 @@ class user {
             $this->dados["email"] = $email;
             $this->dados["alert"] = "As senhas não coincidem";
 
-            sleep(3);
             echo $ambiente->render("signup.html", $this->dados);
             die();
         }
@@ -212,8 +206,8 @@ class user {
         }
         
         $_SESSION['id'] = $user_id;
+        $_SESSION['splash'] = 1;
 
-        sleep(3);
         header("Location: " . URL . "/aventuras");
     }
 

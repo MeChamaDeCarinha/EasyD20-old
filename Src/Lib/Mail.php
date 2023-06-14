@@ -35,7 +35,8 @@ class Mail {
             $mail->isHTML(true);
             $mail->Subject = 'Verificar email';
             $mail->Body    = "
-                <a href='{ $url }' style='font-size:26px;color:#AF5AD1;text-decoration:none'>EasyD20</a>
+                
+                <p style='font-size:26px;color:#AF5AD1;text-decoration:none'>EasyD20</p>
                 <p style=font-size:22px>Seu código de verificação é: <span style='color:#AF5AD1'>{$codigo}</span><br><span style='color:#000000'>Caso não tenha sido você ignore este email.</span></p>
                 ";
             $mail->AltBody = 'Seu email não possui suporte para HTML';

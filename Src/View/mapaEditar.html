@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="../../Src/View/Assets/output.css">
     <link rel="icon" type="image/x-icon" href="../../Src/View/Images/Logo.png">
     <script src="../../Src/View/Assets/image.js"></script>
+    <script src="../../Src/View/Assets/onLoad.js"></script>
 </head>
 
-<body class="bg-dark-300 text-white font-main">
+<body class="bg-light-300 dark:bg-dark-300 text-white2 dark:text-white font-main">
     <div class="w-full h-screen flex items-center justify-center">
-        <div class="w-auto h-auto bg-dark-200 p-2 rounded-lg flex flex-col items-center justify-center gap-6">
+        <div class="w-auto h-auto bg-light-200 dark:bg-dark-200 p-2 rounded-lg flex flex-col items-center justify-center gap-6">
 
-            <a href="{{ url }}/mapas" class="w-24 h-8 rounded-md mr-auto text-primary flex items-center justify-center gap-1 duration-200 hover:bg-white/20">
+            <a href="{{ url }}/mapas" class="w-24 h-8 rounded-md mr-auto text-primary2 dark:text-primary flex items-center justify-center gap-1 duration-200 hover:bg-white2/20 dark:hover:bg-white/20">
                 <svg class="w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" x2="5" y1="12" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                 <p class="text-xl">Voltar</p>
             </a>
@@ -23,7 +24,7 @@
                 <p class="text-3xl mr-auto mb-2 pl-2.5">Editar mapa</p>
                 <form action="{{ url }}/mapas/{{ mapa.id }}/editar" method="post" enctype="multipart/form-data" class="w-96 flex flex-col items-center justify-center gap-3">
                     <label for="file" class="group w-full cursor-pointer flex flex-col items-center justify-center">
-                        <div class="w-4/6 h-40 bg-dark-300 rounded-md overflow-hidden flex items-center justify-center">
+                        <div class="w-4/6 h-40 bg-light-300 dark:bg-dark-300 rounded-md overflow-hidden flex items-center justify-center">
                             <img src="../../Src/View/Images/Maps/{{ mapa.img_path }}" id="img" class="w-full h-full object-contain group-hover:opacity-50 duration-300">
                         </div>
                         <p class="text-primary text-lg">Envie uma imagem</p>
@@ -49,7 +50,7 @@
                     
                     <div class="w-full flex items-center">
                         <a href="{{ url }}/mapas/{{ mapa.id }}/excluir" class="ml-3 text-red-400 text-lg duration-200 hover:text-red-400/80">Excluir mapa</a>
-                        <input type="submit" value="Salvar" class="w-28 h-8 bg-primary ml-auto rounded-md text-lg text-dark-300 cursor-pointer duration-200 hover:bg-primary/80">
+                        <input type="submit" value="Salvar" class="w-28 h-8 bg-primary2 dark:bg-primary ml-auto rounded-md text-lg text-light-300 dark:text-dark-300 cursor-pointer duration-200 hover:bg-primary2 dark:hover:bg-primary/80">
                     </div>
             
                     <div class="text-red-600 flex flex-row-reverse items-center justify-center gap-1">

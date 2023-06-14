@@ -8,17 +8,17 @@
 <div class="h-auto w-full p-10 pl-30 pr-30 flex items-center justify-center flex-wrap row gap-6 shrink-0">
 
     {% if alert %}
-    <div class="group bg-dark-200 rounded-xl p-10 mt-16 hover:bg-dark-300 duration-500 flex flex-col items-center justify-center gap-5">
+    <div class="group bg-light-200 dark:bg-dark-200 rounded-xl p-10 mt-16 hover:bg-light-300 dark:hover:bg-dark-300 duration-500 flex flex-col items-center justify-center gap-5">
         <div class="text-red-600 flex flex-row-reverse items-center justify-center gap-1">
             <p class="peer text-4xl">{{ alert }}</p>
             <svg class="w-9 h-9 peer-empty:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
         </div>
-        <a href="{{ url }}/aventuras" class="text-primary bg-dark-200 hover:bg-dark-300 duration-200 border-primary border-2 p-2 rounded-xl">Voltar a página de aventuras</a>
+        <a href="{{ url }}/aventuras" class="text-primary2 dark:text-primary bg-light-200 dark:bg-dark-200 hover:bg-light-300 dark:hover:bg-dark-300 duration-200 border-primary2 dark:border-primary border-2 p-2 rounded-xl">Voltar a página de aventuras</a>
     </div>
     {% endif %}
 
     {% for ficha in fichas %}
-    <div class="group w-64 h-full rounded-xl border-primary border-2 bg-dark-200 pt-6 pb-6 overflow-hidden flex flex-col items-center gap-1 hover:bg-dark-300 duration-500">
+    <div class="group w-64 h-full rounded-xl border-primary2 dark:border-primary border-2 bg-light-200 dark:bg-dark-200 pt-6 pb-6 overflow-hidden flex flex-col items-center gap-1 hover:bg-light-300 dark:hover:bg-dark-300 duration-500">
         <img src="../Src/View/Images/Profiles/{{ ficha.img_jogador }}" class="w-20 h-20 object-cover rounded-full">
         <div class="w-4/5 flex flex-col items-center justify-center gap-[1px]">
             {% if ficha.nome %}
@@ -26,48 +26,48 @@
             {% else %}
             <p class="text-center w-5/6 line-clamp-1 text-neutral-400">Desconhecido</p>
             {% endif %}
-            <div class="bg-primary w-full h-0.5"></div>
+            <div class="bg-primary2 dark:bg-primary w-full h-0.5"></div>
             <p class="text-secondary text-sm text-center w-5/6 line-clamp-1">{{ ficha.nome_jogador }}</p>
         </div>
         <div class="w-full p-3 text-base flex flex-wrap items-start justify-center">
             {% if ficha.idade %}
-            <p class="w-1/2 text-center line-clamp-1">Idade: <span class="underline decoration-primary">{{ ficha.idade }} anos</span></p>
+            <p class="w-1/2 text-center line-clamp-1">Idade: <span class="underline decoration-primary2 dark:decoration-primary">{{ ficha.idade }} anos</span></p>
             {% else %}
-            <p class="w-1/2 text-center line-clamp-1">Idade: <span class="underline decoration-primary text-neutral-400">– anos</span></p>
+            <p class="w-1/2 text-center line-clamp-1">Idade: <span class="underline decoration-primary2 dark:decoration-primary text-neutral-400">– anos</span></p>
             {% endif %}
 
             {% if ficha.raca %}
-            <p class="w-1/2 text-center line-clamp-1">Raça: <span class="underline decoration-primary">{{ ficha.raca }}</span></p>
+            <p class="w-1/2 text-center line-clamp-1">Raça: <span class="underline decoration-primary2 dark:decoration-primary">{{ ficha.raca }}</span></p>
             {% else %}
-            <p class="w-1/2 text-center line-clamp-1">Raça: <span class="underline decoration-primary text-neutral-400">–</span></p>
+            <p class="w-1/2 text-center line-clamp-1">Raça: <span class="underline decoration-primary2 dark:decoration-primary text-neutral-400">–</span></p>
             {% endif %}
 
             {% if ficha.altura %}
-            <p class="w-1/2 text-center line-clamp-1">Altura: <span class="underline decoration-primary">{{ ficha.altura }} m</span></p>
+            <p class="w-1/2 text-center line-clamp-1">Altura: <span class="underline decoration-primary2 dark:decoration-primary">{{ ficha.altura }} m</span></p>
             {% else %}
-            <p class="w-1/2 text-center line-clamp-1">Altura: <span class="underline decoration-primary text-neutral-400">– m</span></p>
+            <p class="w-1/2 text-center line-clamp-1">Altura: <span class="underline decoration-primary2 dark:decoration-primary text-neutral-400">– m</span></p>
             {% endif %}
 
 
             {% if ficha.classe %}
-            <p class="w-1/2 text-center line-clamp-1">Classe: <span class="underline decoration-primary">{{ ficha.classe }}</span></p>
+            <p class="w-1/2 text-center line-clamp-1">Classe: <span class="underline decoration-primary2 dark:decoration-primary">{{ ficha.classe }}</span></p>
             {% else %}
-            <p class="w-1/2 text-center line-clamp-1">Classe: <span class="underline decoration-primary text-neutral-400">–</span></p>
+            <p class="w-1/2 text-center line-clamp-1">Classe: <span class="underline decoration-primary2 dark:decoration-primary text-neutral-400">–</span></p>
             {% endif %}
 
             {% if ficha.peso %}
-            <p class="w-1/2 text-center line-clamp-1">Peso: <span class="underline decoration-primary">{{ ficha.peso }} kg</span></p>
+            <p class="w-1/2 text-center line-clamp-1">Peso: <span class="underline decoration-primary2 dark:decoration-primary">{{ ficha.peso }} kg</span></p>
             {% else %}
-            <p class="w-1/2 text-center line-clamp-1">Peso: <span class="underline decoration-primary text-neutral-400">– kg</span></p>
+            <p class="w-1/2 text-center line-clamp-1">Peso: <span class="underline decoration-primary2 dark:decoration-primary text-neutral-400">– kg</span></p>
             {% endif %}
 
             {% if ficha.nivel %}
-            <p class="w-1/2 text-center line-clamp-1">Nível: <span class="underline decoration-primary">{{ ficha.nivel }}</span></p>
+            <p class="w-1/2 text-center line-clamp-1">Nível: <span class="underline decoration-primary2 dark:decoration-primary">{{ ficha.nivel }}</span></p>
             {% else %}
-            <p class="w-1/2 text-center line-clamp-1">Nível: <span class="underline decoration-primary text-neutral-400">–</span></p>
+            <p class="w-1/2 text-center line-clamp-1">Nível: <span class="underline decoration-primary2 dark:decoration-primary text-neutral-400">–</span></p>
             {% endif %}
         </div>
-        <a href="{{ url }}/fichas/{{ ficha.id }}" class="group/button bg-primary w-9 hover:w-44 text-center text-lg text-neutral-950 p-1 rounded-md flex items-center justify-center hover:bg-purple-500 duration-200 delay-500 ease-linear">
+        <a href="{{ url }}/fichas/{{ ficha.id }}" class="group/button bg-primary2 dark:bg-primary w-9 hover:w-44 text-center text-lg text-light-300 p-1 rounded-md flex items-center justify-center hover:bg-purple-500 duration-200 delay-500 ease-linear">
             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
                 <circle cx="12" cy="12" r="3"></circle>

@@ -10,23 +10,24 @@
 
     <link rel="stylesheet" href="../../../Src/View/Assets/output.css">
     <link rel="icon" type="image/x-icon" href="../../../Src/View/Images/Logo.png">
-    <script src="../../../Src/View/Assets/theme.js"></script>
+    <script src="../../../Src/View/Assets/onLoad.js"></script>
+    <script src="../../../Src/View/Assets/lib.js"></script>
     {% block script %}
     {% endblock %}
 </head>
 
-<body class="bg-dark-100 text-white font-main">
-    <div class="w-full h-full bg-dark-100">
-        <aside class="group w-14 h-full fixed shrink-0 text-xl bg-dark-300 p-2 border-r-2 border-primary hover:w-48 ease-in-out duration-500 hover:delay-1000 flex flex-col gap-2">
-            <a href="{{ url }}" class="w-full h-10 rounded-md shrink-0 hover:bg-white/10 flex items-center justify-center">
+<body class="bg-light-100 dark:bg-dark-100 text-white2 dark:text-white font-main">
+    <div class="w-full h-full bg-light-100 dark:bg-dark-100">
+        <aside class="group w-14 h-full fixed shrink-0 text-xl bg-light-300 dark:bg-dark-300 p-2 border-r-2 border-primary2 dark:border-primary hover:w-48 ease-in-out duration-500 hover:delay-1000 flex flex-col gap-2">
+            <a href="{{ url }}" class="w-full h-10 rounded-md shrink-0 hover:bg-white2/10 dark:hover:bg-white/10 flex items-center justify-center">
                 <img class="w-8 h-8 shrink-0" src="../../../Src/View/Images/Logo.png">
-                <span class="w-0 text-white/0 group-hover:text-white group-hover:ml-2 text-lg group-hover:w-28 text-white overflow-hidden ease-in-out duration-500 group-hover:delay-1000">EasyD20</span>
+                <span class="w-0 text-white/0 group-hover:text-white2 dark:group-hover:text-white group-hover:ml-2 text-lg group-hover:w-28 text-white2 dark:text-white overflow-hidden ease-in-out duration-500 group-hover:delay-1000">EasyD20</span>
             </a>
 
             <div class="h-10"></div>
 
-            <a href="{{ url }}/dados" class="w-full h-10 rounded-md shrink-0 hover:bg-white/10 flex items-center justify-center">
-                <svg class="w-8 h-8 text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <a href="{{ url }}/dados" class="w-full h-10 rounded-md shrink-0 hover:bg-white2/10 dark:hover:bg-white/10 flex items-center justify-center">
+                <svg class="w-8 h-8 text-primary2 dark:text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                     <rect width="12" height="12" x="2" y="10" rx="2" ry="2" />
                     <path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6" />
                     <path stroke-width="2" d="M6 18h.01" />
@@ -34,41 +35,41 @@
                     <path stroke-width="2" d="M15 6h.01" />
                     <path stroke-width="2" d="M18 9h.01" />
                 </svg>
-                <span class="w-0 text-white/0 group-hover:text-white group-hover:ml-2 text-lg group-hover:w-28 text-white overflow-hidden ease-in-out duration-500 group-hover:delay-1000">Dados</span>
+                <span class="w-0 text-white/0 group-hover:text-white2 dark:group-hover:text-white group-hover:ml-2 text-lg group-hover:w-28 text-white2 dark:text-white overflow-hidden ease-in-out duration-500 group-hover:delay-1000">Dados</span>
             </a>
 
-            <a href="{{ url }}/aventuras" class="w-full h-10 rounded-md shrink-0 hover:bg-white/10 flex items-center justify-center">
-                <svg class="w-8 h-8 text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <a href="{{ url }}/aventuras" class="w-full h-10 rounded-md shrink-0 hover:bg-white2/10 dark:hover:bg-white/10 flex items-center justify-center">
+                <svg class="w-8 h-8 text-primary2 dark:text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                     <path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z"></path>
                     <path d="M12 22v-3"></path>
                 </svg>
-                <span class="w-0 text-white/0 group-hover:text-white group-hover:ml-2 text-lg group-hover:w-28 text-white overflow-hidden ease-in-out duration-500 group-hover:delay-1000">Aventuras</span>
+                <span class="w-0 text-white/0 group-hover:text-white2 dark:group-hover:text-white group-hover:ml-2 text-lg group-hover:w-28 text-white2 dark:text-white overflow-hidden ease-in-out duration-500 group-hover:delay-1000">Aventuras</span>
             </a>
-            <a href="{{ url }}/fichas" class="w-full h-10 rounded-md shrink-0 hover:bg-white/10 flex items-center justify-center">
+            <a href="{{ url }}/fichas" class="w-full h-10 rounded-md shrink-0 hover:bg-white2/10 dark:hover:bg-white/10 flex items-center justify-center">
                 <!-- <svg class="w-8 h-8 text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"></path><path d="M18 14h-8"></path><path d="M15 18h-5"></path><path d="M10 6h8v4h-8V6Z"></path></svg> -->
-                <svg class="w-8 h-8 text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="w-8 h-8 text-primary2 dark:text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M10 17v2a2 2 0 0 1-2 2v0a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v3h3"></path>
                     <path d="M22 17v2a2 2 0 0 1-2 2H8"></path>
                     <path d="M19 17V5a2 2 0 0 0-2-2H4"></path>
                     <path d="M22 17H10"></path>
                 </svg>
-                <span class="w-0 text-white/0 group-hover:text-white group-hover:ml-2 text-lg group-hover:w-28 text-white overflow-hidden ease-in-out duration-500 group-hover:delay-1000">Fichas</span>
+                <span class="w-0 text-white/0 group-hover:text-white2 dark:group-hover:text-white group-hover:ml-2 text-lg group-hover:w-28 text-white2 dark:text-white overflow-hidden ease-in-out duration-500 group-hover:delay-1000">Fichas</span>
             </a>
-            <a href="{{ url }}/mapas" class="w-full h-10 rounded-md shrink-0 hover:bg-white/10 flex items-center justify-center">
+            <a href="{{ url }}/mapas" class="w-full h-10 rounded-md shrink-0 hover:bg-white2/10 dark:hover:bg-white/10 flex items-center justify-center">
                 <!-- <svg class="w-8 h-8 text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" x2="9" y1="3" y2="18"></line><line x1="15" x2="15" y1="6" y2="21"></line></svg> -->
-                <svg class="w-8 h-8 text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="w-8 h-8 text-primary2 dark:text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="10"></circle>
                     <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
                 </svg>
-                <span class="w-0 text-white/0 group-hover:text-white group-hover:ml-2 text-lg group-hover:w-28 text-white overflow-hidden ease-in-out duration-500 group-hover:delay-1000">Mapas</span>
+                <span class="w-0 text-white/0 group-hover:text-white2 dark:group-hover:text-white group-hover:ml-2 text-lg group-hover:w-28 text-white2 dark:text-white overflow-hidden ease-in-out duration-500 group-hover:delay-1000">Mapas</span>
             </a>
 
             <div class="h-full"></div>
 
-            <div class="opacity-0 group-hover:opacity-100 h-40 text-sm bg-dark-200 border-2 border-primary rounded-md overflow-x-hidden overflow-y-scroll p-2 flex flex-col gap-0.5 shrink-0 ease-in-out duration-300 group-hover:delay-[1250ms]" id="access">
+            <div class="opacity-0 group-hover:opacity-100 h-40 text-sm bg-light-200 dark:bg-dark-200 border-2 border-primary2 dark:border-primary rounded-md overflow-x-hidden overflow-y-scroll p-2 flex flex-col gap-0.5 shrink-0 ease-in-out duration-300 group-hover:delay-[1250ms]" id="access">
                 <p class="p-0.5 text-primary text-base text-center">Acesso rápido</p>
                 {% for aventura in aven %}
-                <a href="{{ url }}/aventuras/{{ aventura.id }}/entrar" class="hover:bg-white/10 p-1 pl-2 rounded-md">
+                <a href="{{ url }}/aventuras/{{ aventura.id }}/entrar" class="hover:bg-white2/10 dark:hover:bg-white/10 p-1 pl-2 rounded-md">
                     <p>{{ aventura.nome }}</p>
                 </a>
                 {% endfor %}
@@ -76,20 +77,20 @@
 
             <div class="h-full"></div>
 
-            <a href="{{ url }}/perfil" class="w-full h-10 rounded-md shrink-0 hover:bg-white/10 flex items-center justify-center">
+            <a href="{{ url }}/perfil" class="w-full h-10 rounded-md shrink-0 hover:bg-white2/10 dark:hover:bg-white/10 flex items-center justify-center">
                 <img src="../../../Src/View/Images/Profiles/{{ user.img_path }}" class="w-7 h-7 shrink-0 rounded-full object-cover">
-                <span class="w-0 text-white/0 group-hover:text-white group-hover:ml-2 text-lg group-hover:w-28 text-white line-clamp-1 overflow-hidden ease-in-out duration-500 group-hover:delay-1000">{{ user.nome }}</span>
+                <span class="w-0 text-white/0 group-hover:text-white2 dark:group-hover:text-white group-hover:ml-2 text-lg group-hover:w-28 text-white2 dark:text-white line-clamp-1 overflow-hidden ease-in-out duration-500 group-hover:delay-1000">{{ user.nome }}</span>
             </a>
-            <a href="{{ url }}/settings" class="w-full h-10 rounded-md shrink-0 hover:bg-white/10 flex items-center justify-center">
-                <svg class="w-8 h-8 text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <a href="{{ url }}/settings" class="w-full h-10 rounded-md shrink-0 hover:bg-white2/10 dark:hover:bg-white/10 flex items-center justify-center">
+                <svg class="w-8 h-8 text-primary2 dark:text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
                     <circle cx="12" cy="12" r="3"></circle>
                 </svg>
-                <span class="w-0 text-white/0 group-hover:text-white group-hover:ml-2 text-lg group-hover:w-28 text-white overflow-hidden ease-in-out duration-500 group-hover:delay-1000">Configurações</span>
+                <span class="w-0 text-white/0 group-hover:text-white2 dark:group-hover:text-white group-hover:ml-2 text-lg group-hover:w-28 text-white2 dark:text-white overflow-hidden ease-in-out duration-500 group-hover:delay-1000">Configurações</span>
             </a>
         </aside>
 
-        <main class="w-full h-full bg-dark-100 text-white">
+        <main class="w-full h-full bg-light-100 dark:bg-dark-100 text-white2 dark:text-white">
             {% block content %}
             {% endblock %}
         </main>

@@ -8,21 +8,21 @@
 {% block content %}
 <div class="h-auto w-full p-10 flex flex-row items-start justify-center flex-wrap gap-5 shrink-0">
 
-    <div class="group w-14 h-max text-primary rounded-xl p-2 bg-dark-300 overflow-hidden flex flex-col items-center gap-2">
-        <a href="{{ url }}/aventuras" class="w-10 h-10 rounded-md hover:bg-white/10 flex items-center justify-center duration-500">
+    <div class="group w-14 h-max text-primary2 dark:text-primary rounded-xl p-2 bg-light-300 dark:bg-dark-300 overflow-hidden flex flex-col items-center gap-2">
+        <a href="{{ url }}/aventuras" class="w-10 h-10 rounded-md hover:bg-white2/10 dark:hover:bg-white/10 flex items-center justify-center duration-500">
             <svg class="w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="19" x2="5" y1="12" y2="12"></line>
                 <polyline points="12 19 5 12 12 5"></polyline>
             </svg>
         </a>
         {% if user_id == mestre_id %}
-        <a href="{{ url }}/aventuras/{{ aventura.id }}/editar" class="w-10 h-10 rounded-md hover:bg-white/10 flex items-center justify-center duration-500">
+        <a href="{{ url }}/aventuras/{{ aventura.id }}/editar" class="w-10 h-10 rounded-md hover:bg-white2/10 dark:hover:bg-white/10 flex items-center justify-center duration-500">
             <svg class="w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 20h9"></path>
                 <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
             </svg>
         </a>
-        <a href="{{ url }}/aventuras/{{ aventura.id }}/configurar" class="w-10 h-10 rounded-md hover:bg-white/10 flex items-center justify-center duration-500">
+        <a href="{{ url }}/aventuras/{{ aventura.id }}/configurar" class="w-10 h-10 rounded-md hover:bg-white2/10 dark:hover:bg-white/10 flex items-center justify-center duration-500">
             <svg class="w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
                 <circle cx="12" cy="12" r="3"></circle>
@@ -43,27 +43,27 @@
         </a>
         {% endif %}
     </div>
-    <div class="group w-4/6 rounded-xl bg-dark-200 overflow-hidden flex flex-col items-center">
+    <div class="group w-4/6 rounded-xl bg-light-200 dark:bg-dark-200 overflow-hidden flex flex-col items-center">
         <img src="../Src/View/Images/Cards/{{ aventura.imagem }}" class="w-full h-60 object-cover">
-        <div class="bg-dark-200/80 p-2 pr-4 relative bottom-12 rounded-tr-2xl place-self-start flex items-end gap-3">
+        <div class="bg-light-200/80 dark:bg-dark-200/80 p-2 pr-4 relative bottom-12 rounded-tr-2xl place-self-start flex items-end gap-3">
             <p class="text-3xl">{{ aventura.nome }}</p>
-            <p class="text-primary empty:hidden">{{ aventura.livro }}</p>
+            <p class="text-primary2 dark:text-primary empty:hidden">{{ aventura.livro }}</p>
         </div>
-        <div class="bg-dark-200/80 p-2 pl-4 relative bottom-24 rounded-tl-2xl place-self-end flex items-end gap-1">
+        <div class="bg-light-200/80 dark:bg-dark-200/80 p-2 pl-4 relative bottom-24 rounded-tl-2xl place-self-end flex items-end gap-1">
             <p class="text-xl">Código: </p>
-            <p class="text-xl text-primary">{{ aventura.codigo }}</p>
+            <p class="text-xl text-primary2 dark:text-primary">{{ aventura.codigo }}</p>
         </div>
         <div class="w-full h-28 relative bottom-24 p-2 flex justify-center items-start">
             <div class="w-3/5 pl-2 pr-2 rounded-md">
-                <p class="text-2xl text-center text-primary">Descrição</p>
+                <p class="text-2xl text-center text-primary2 dark:text-primary">Descrição</p>
                 <p class="text-lg line-clamp-5">{{ aventura.descricao }}</p>
             </div>
-            <div class="w-2/5 h-48 pl-2 pr-1 pb-1 rounded-md flex flex-col gap-1 hover:bg-dark-300/30 duration-300 delay-150">
-                <p class="text-2xl text-center text-primary">Participantes</p>
+            <div class="w-2/5 h-48 pl-2 pr-1 pb-1 rounded-md flex flex-col gap-1 hover:bg-light-300/30 dark:hover:bg-dark-300/30 duration-300 delay-150">
+                <p class="text-2xl text-center text-primary2 dark:text-primary">Participantes</p>
                 <div class="p-1 overflow-scroll overflow-x-hidden" id="access">
 
                     {% for usuario in usuarios %}
-                    <div class="text-lg pl-1 pr-1 border-b-2 border-primary hover:bg-dark-300/80 hover:rounded-sm flex flex-row items-center gap-1 duration-300">
+                    <div class="text-lg pl-1 pr-1 border-b-2 border-primary2 dark:border-primary hover:bg-light-300/80 dark:hover:bg-dark-300/80 hover:rounded-sm flex flex-row items-center gap-1 duration-300">
                         <p class="w-full">{{ usuario.nome }}</p>
                         {% if usuario.id == mestre_id %}
                         <div href="{{ url }}/aventuras/{{ aventura.id }}/mestre/{{ usuario.id }}" class="text-yellow-400">
@@ -80,7 +80,7 @@
                         {% endif %}
                         {% if usuario.id != mestre_id and user_id == mestre_id %}
                         <a href="{{ url }}/aventuras/{{ aventura.id }}/expulsar/{{ usuario.id }}" class="text-red-400">
-                            <svg class="w-5 h-5 hover:bg-white/10 rounded-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="w-5 h-5 hover:bg-white2/10 dark:hover:bg-white/10 rounded-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="18" x2="6" y1="6" y2="18"></line>
                                 <line x1="6" x2="18" y1="6" y2="18"></line>
                             </svg>

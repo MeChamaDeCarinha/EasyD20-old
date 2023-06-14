@@ -108,8 +108,8 @@ $roteador->get("/", "general:showDados");
 
 
 // Ajuda
-$roteador->group("ajuda");
-$roteador->get("/", "general:showAjuda");
+$roteador->group("tutorial");
+$roteador->get("/", "general:showTutorial");
 
 
 // Perfil
