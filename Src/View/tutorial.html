@@ -11,70 +11,244 @@
         
         <!-- de 7 em 7 -->
 
-        <p class="text-primary text-4xl mb-2">Como jogar:</p>
+        <p class="text-primary2 dark:text-primary text-4xl mb-2">Como utilizar</p>
         
-        <div class="group w-full h-9 hover:h-24 bg-dark-200 rounded-lg overflow-hidden duration-300 delay-1000 hover:delay-200">
-            <p class="w-full pl-2 hover:bg-white/20 rounded-lg text-3xl text-[#e2b0f4] duration-300 flex items-center">
-                <svg class="w-7 group-hover:rotate-90 duration-300 delay-1000 group-hover:delay-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="group w-full h-9 hover:h-24 bg-light-200 dark:bg-dark-200 rounded-lg overflow-hidden duration-300 delay-1000 hover:delay-300">
+            <p class="w-full pl-2 hover:bg-white2/20 dark:hover:bg-white/20 rounded-lg text-3xl text-purple-600 dark:text-[#e2b0f4] duration-300 flex items-center">
+                <svg class="w-7 group-hover:rotate-90 duration-300 delay-1000 group-hover:delay-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="9 18 15 12 9 6"/>
                 </svg>
                 Dados
             </p>
-            <p class="w-full h-max pl-4 pr-4 text-white text-lg text-clip bg-"></p>
+            <p class="w-full h-max pl-4 pr-4 text-white2 dark:text-white text-lg text-clip">Permite que o jogador simule jogar dados como em um RPG, podendo escolher o número de lados do mesmo. Para isso basta inserir o número de lados e apertar no botão "jogar".</p>
         </div>
-        <div class="group w-full h-9 hover:h-16 bg-dark-200 rounded-lg overflow-hidden duration-300 delay-1000 hover:delay-200">
-            <p class="w-full pl-2 hover:bg-white/20 rounded-lg text-3xl text-[#e2b0f4] duration-300 flex items-center">
-                <svg class="w-7 group-hover:rotate-90 duration-300 delay-1000 group-hover:delay-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        
+        <div class="group w-full h-9 hover:h-96 bg-light-200 dark:bg-dark-200 rounded-lg overflow-hidden duration-300 delay-1000 hover:delay-300">
+            <p class="w-full pl-2 hover:bg-white2/20 dark:hover:bg-white/20 rounded-lg text-3xl text-purple-600 dark:text-[#e2b0f4] duration-300 flex items-center">
+                <svg class="w-7 group-hover:rotate-90 duration-300 delay-1000 group-hover:delay-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="9 18 15 12 9 6"/>
                 </svg>
                 Aventuras
             </p>
-            <p class="ml-4 mr-4 text-white text-lg"></p>
+            <div class="h-full pb-11 overflow-x-hidden overflow-y-scroll" id="access">
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">Aqui você pode ver, acessar, selecionar, criar ou entrar em uma aventura.</p>
+
+                <p class="text-purple-600 dark:text-[#e2b0f4] text-[28px] leading-none pl-4 mt-4">Acessar</p>
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">
+                    Para acessar as informações, clique no botão
+                    <svg class="inline-block w-5 mr-1 ml-1 leading-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="1"></circle>
+                        <circle cx="19" cy="12" r="1"></circle>
+                        <circle cx="5" cy="12" r="1"></circle>
+                    </svg>
+                    localizado no canto superior direito da aventura desejada. Lá você pode ver detalhes ou sair da mesma, e caso seja o mestre pode editar 
+                    (<svg class="inline-block w-5 leading-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 20h9"></path>
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                    </svg>) informações, configurar
+                    (<svg class="inline-block w-5 leading-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>), excluir
+                    (<svg class="inline-block w-5 leading-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 6h18"></path>
+                        <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                        <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                        <line x1="10" x2="10" y1="11" y2="17"></line>
+                        <line x1="14" x2="14" y1="11" y2="17"></line>
+                    </svg>) a aventura, e até mesmo expulsar
+                    (<svg class="inline-block w-5 leading-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" x2="6" y1="6" y2="18"></line>
+                        <line x1="6" x2="18" y1="6" y2="18"></line>
+                    </svg>), banir
+                    (<svg class="inline-block w-5 leading-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="4.93" x2="19.07" y1="4.93" y2="19.07"></line>
+                    </svg>) ou passar o cargo de mestre
+                    (<svg class="inline-block w-5 leading-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>) a outro jogador.
+                </p>
+
+                <p class="text-purple-600 dark:text-[#e2b0f4] text-[28px] leading-none pl-4 mt-4">Selecionar</p>
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">
+                    Clicando no botão<svg class="inline-block w-5 ml-1 leading-7" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>, você irá selecionar e ser redirecionado para as fichas da aventura em que selecionou.</p>
+
+                <p class="text-purple-600 dark:text-[#e2b0f4] text-[28px] leading-none pl-4 mt-4">Criar</p>
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">Na criação de uma aventura clicando no botão "Crie sua aventura (+)", você pode personalizar com o nome, livro baseado (caso tenha), descrição e uma imagem do nosso banco ou realizar o upload você mesmo.</p>
+
+                <p class="text-purple-600 dark:text-[#e2b0f4] text-[28px] leading-none pl-4 mt-4">Entrar</p>
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">Você entra em uma aventura ao clicar em "Entre em uma aventura (→)" e colocando o código fornecido pelo mestre da aventura.</p>
+            </div>
+            
         </div>
-        <div class="group w-full h-9 hover:h-16 bg-dark-200 rounded-lg overflow-hidden duration-300 delay-1000 hover:delay-200">
-            <p class="w-full pl-2 hover:bg-white/20 rounded-lg text-3xl text-[#e2b0f4] duration-300 flex items-center">
-                <svg class="w-7 group-hover:rotate-90 duration-300 delay-1000 group-hover:delay-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+        <div class="group w-full h-9 hover:h-[372px] bg-light-200 dark:bg-dark-200 rounded-lg overflow-hidden duration-300 delay-1000 hover:delay-300">
+            <p class="w-full pl-2 hover:bg-white2/20 dark:hover:bg-white/20 rounded-lg text-3xl text-purple-600 dark:text-[#e2b0f4] duration-300 flex items-center">
+                <svg class="w-7 group-hover:rotate-90 duration-300 delay-1000 group-hover:delay-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="9 18 15 12 9 6"/>
                 </svg>
                 Fichas
             </p>
-            <p class="ml-4 mr-4 text-white text-lg"></p>
+            <div class="h-full pb-11 overflow-x-hidden overflow-y-scroll" id="access">
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">Ao selecionar uma aventura, você será levado diretamente a sua ficha caso seja um jogador, e terá acesso as informações da sua ficha, se você for o mestre verá algumas informações das fichas dos jogadores participantes (caso tenha algum), acessando elas, poderá criar, editar ou excluir atributos, habilidades ou itens.</p>
+
+                <p class="text-purple-600 dark:text-[#e2b0f4] text-[28px] leading-none pl-4 mt-4">Editar ficha</p>
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">
+                    Clicando em
+                    <svg class="inline-block w-5 mr-1 ml-1 leading-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 20h9"></path>
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                    </svg>
+                    você conseguirá editar as informações da ficha, como nome do personagem, idade, altura, peso, entre outros.
+                </p>
+
+                <p class="text-purple-600 dark:text-[#e2b0f4] text-[28px] leading-none pl-4 mt-4">Criação de atributos, habilidades e itens</p>
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">
+                    O botão <svg class="inline-block w-5 leading-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" x2="12" y1="5" y2="19"></line>
+                        <line x1="5" x2="19" y1="12" y2="12"></line>
+                    </svg>,
+                    em ambos os casos citados acima permite que você insira as informações necessárias para que consiga criar os mesmos.
+                </p>
+
+                <p class="text-purple-600 dark:text-[#e2b0f4] text-[28px] leading-none pl-4 mt-4">Edição e exclusão de atributos, habilidades e itens</p>
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">
+                    Ao acessar <svg class="inline-block w-5 leading-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 20h9"></path>
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                    </svg>,
+                    você poderá editar as informações o quanto quiser, ou até mesmo excluir por completo.
+                </p>
+            </div>
+
         </div>
-        <div class="group w-full h-9 hover:h-16 bg-dark-200 rounded-lg overflow-hidden duration-300 delay-1000 hover:delay-200">
-            <p class="w-full pl-2 hover:bg-white/20 rounded-lg text-3xl text-[#e2b0f4] duration-300 flex items-center">
-                <svg class="w-7 group-hover:rotate-90 duration-300 delay-1000 group-hover:delay-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+        <div class="group w-full h-9 hover:h-[372px] bg-light-200 dark:bg-dark-200 rounded-lg overflow-hidden duration-300 delay-1000 hover:delay-300">
+            <p class="w-full pl-2 hover:bg-white2/20 dark:hover:bg-white/20 rounded-lg text-3xl text-purple-600 dark:text-[#e2b0f4] duration-300 flex items-center">
+                <svg class="w-7 group-hover:rotate-90 duration-300 delay-1000 group-hover:delay-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="9 18 15 12 9 6"/>
                 </svg>
                 Mapas
             </p>
-            <p class="ml-4 mr-4 text-white text-lg"></p>
+            <div class="h-full pb-11 overflow-x-hidden overflow-y-scroll" id="access">
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">A tela de mapas permite visualizar os mapas da sua aventura e caso seja mestre criá-los, editá-los, excluí-los ou ocultá-los dos jogadores.</p>
+
+                <p class="text-purple-600 dark:text-[#e2b0f4] text-[28px] leading-none pl-4 mt-4">Criar mapa</p>
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">
+                    Para criar um mapa, acesse  <svg class="inline-block w-5 mr-1 ml-1 leading-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" x2="12" y1="3" y2="15"/>
+                    </svg>, e lá poderá inserir o nome, descrição (caso deseje), e escolher um pré definido ou realizar upload do seu próprio mapa.
+                </p>
+
+                <p class="text-purple-600 dark:text-[#e2b0f4] text-[28px] leading-none pl-4 mt-4">Editar mapa</p>
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">
+                    Clicando em
+                    <svg class="inline-block w-5 mr-1 ml-1 leading-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 20h9"></path>
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                    </svg>
+                    você conseguirá editar as informações do mapa, como nome, descrição ou até mesmo mudar a imagem.
+                </p>
+                
+                <p class="text-purple-600 dark:text-[#e2b0f4] text-[28px] leading-none pl-4 mt-4">Mapa oculto</p>
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">
+                    Quando um mapa foi ocultado pelo mestre ele ficará borrado e um ícone (<svg class="inline-block w-5 mr-1 ml-1 leading-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/>
+                        <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/>
+                        <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/>
+                        <line x1="2" x2="22" y1="2" y2="22"/>
+                    </svg>) vai aparecer sobre ele, caso seja o mestre da aventura poderá torná-lo visível novamente.
+                </p>
+            </div>
+
         </div>
-        <div class="group w-full h-9 hover:h-16 bg-dark-200 rounded-lg overflow-hidden duration-300 delay-1000 hover:delay-200">
-            <p class="w-full pl-2 hover:bg-white/20 rounded-lg text-3xl text-[#e2b0f4] duration-300 flex items-center">
-                <svg class="w-7 group-hover:rotate-90 duration-300 delay-1000 group-hover:delay-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+        <div class="group w-full h-9 hover:h-24 bg-light-200 dark:bg-dark-200 rounded-lg overflow-hidden duration-300 delay-1000 hover:delay-300">
+            <p class="w-full pl-2 hover:bg-white2/20 dark:hover:bg-white/20 rounded-lg text-3xl text-purple-600 dark:text-[#e2b0f4] duration-300 flex items-center">
+                <svg class="w-7 group-hover:rotate-90 duration-300 delay-1000 group-hover:delay-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="9 18 15 12 9 6"/>
                 </svg>
                 Acesso rápido
             </p>
-            <p class="ml-4 mr-4 text-white text-lg"></p>
+            <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">Localizado na barra lateral, o acesso rápido permite alternar entre aventuras sem que você precise ir a até a tela de aventuras, ao clicar você será redirecinado para a tela de fichas da qual escolheu.</p>
         </div>
-        <div class="group w-full h-9 hover:h-16 bg-dark-200 rounded-lg overflow-hidden duration-300 delay-1000 hover:delay-200">
-            <p class="w-full pl-2 hover:bg-white/20 rounded-lg text-3xl text-[#e2b0f4] duration-300 flex items-center">
-                <svg class="w-7 group-hover:rotate-90 duration-300 delay-1000 group-hover:delay-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+        <div class="group w-full h-9 hover:h-72 bg-light-200 dark:bg-dark-200 rounded-lg overflow-hidden duration-300 delay-1000 hover:delay-300">
+            <p class="w-full pl-2 hover:bg-white2/20 dark:hover:bg-white/20 rounded-lg text-3xl text-purple-600 dark:text-[#e2b0f4] duration-300 flex items-center">
+                <svg class="w-7 group-hover:rotate-90 duration-300 delay-1000 group-hover:delay-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="9 18 15 12 9 6"/>
                 </svg>
                 Perfil
             </p>
-            <p class="ml-4 mr-4 text-white text-lg"></p>
+            <div class="h-full pb-11 overflow-x-hidden overflow-y-scroll" id="access">
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">Aqui fica seu perfil, permitindo você editar, sair ou verificar seu email caso não esteja verificado.</p>
+
+                <p class="text-purple-600 dark:text-[#e2b0f4] text-[28px] leading-none pl-4 mt-4">Editar perfil</p>
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">
+                    Ao clicar em
+                    <svg class="inline-block w-5 mr-1 ml-1 leading-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 20h9"></path>
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                    </svg>
+                    você terá acesso a edição de algumas informações, como foto de perfil, nome de usuário e email da conta.
+                </p>
+
+                <p class="text-purple-600 dark:text-[#e2b0f4] text-[28px] leading-none pl-4 mt-4">Sair</p>
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">Para sair da sua conta clique em <svg class="inline-block w-5 mr-1 ml-1 leading-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" x2="9" y1="12" y2="12"></line>
+                </svg>, e sua conta será desconectada.</p>
+
+                <p class="text-purple-600 dark:text-[#e2b0f4] text-[28px] leading-none pl-4 mt-4">Outros</p>
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">Para coisas como mudança de senha, recuperação de senha e exclusão de conta veja a seção "Configurações"</p>
+            </div>
         </div>
-        <div class="group w-full h-9 hover:h-16 bg-dark-200 rounded-lg overflow-hidden duration-300 delay-1000 hover:delay-200">
-            <p class="w-full pl-2 hover:bg-white/20 rounded-lg text-3xl text-[#e2b0f4] duration-300 flex items-center">
-                <svg class="w-7 group-hover:rotate-90 duration-300 delay-1000 group-hover:delay-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+        <div class="group w-full h-9 hover:h-96 bg-light-200 dark:bg-dark-200 rounded-lg overflow-hidden duration-300 delay-1000 hover:delay-300">
+            <p class="w-full pl-2 hover:bg-white2/20 dark:hover:bg-white/20 rounded-lg text-3xl text-purple-600 dark:text-[#e2b0f4] duration-300 flex items-center">
+                <svg class="w-7 group-hover:rotate-90 duration-300 delay-1000 group-hover:delay-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="9 18 15 12 9 6"/>
                 </svg>
                 Configurações
             </p>
-            <p class="ml-4 mr-4 text-white text-lg"></p>
+            <div class="h-full pb-11 overflow-x-hidden overflow-y-scroll" id="access">
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">Você já deve ter uma noção, afinal, como chegou aqui?</p>
+
+                <p class="text-purple-600 dark:text-[#e2b0f4] text-[28px] leading-none pl-4 mt-4">Animação dos dados</p>
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">Desativa a animação e faz com que ao clicar em jogar o resultado seja mostrado imediatamente, caso esteja desabilitada.</p>
+
+                <p class="text-purple-600 dark:text-[#e2b0f4] text-[28px] leading-none pl-4 mt-4">Tema escuro</p>
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">Por padrão já esta habilitado, mas caso more em uma caverna sem iluminação, pode ativar o modo claro para poder enxergar as coisas.
+                    <svg class="inline-block w-5 mr-1 ml-1 leading-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                        <line stroke-width="3" x1="9" x2="9.01" y1="9" y2="9"/>
+                        <line stroke-width="3" x1="15" x2="15.01" y1="9" y2="9"/>
+                    </svg>
+                </p>
+
+                <p class="text-purple-600 dark:text-[#e2b0f4] text-[28px] leading-none pl-4 mt-4">Ajuda</p>
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">É sério que precisa explicar?
+                    <svg class="inline-block w-5 mr-1 ml-1 leading-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M8 15h8"/>
+                        <path d="M8 9h2"/>
+                        <path d="M14 9h2"/>
+                    </svg>
+                </p>
+
+                <p class="text-purple-600 dark:text-[#e2b0f4] text-[28px] leading-none pl-4 mt-4">Entre em contato</p>
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">Algumas das nossas redes sociais e também o nosso Discord, caso precise entrar em contato.</p>
+
+                <p class="text-purple-600 dark:text-[#e2b0f4] text-[28px] leading-none pl-4 mt-4">Conta</p>
+                <p class="ml-4 mr-4 text-white2 dark:text-white text-lg">Algumas opções a mais sobre o seu perfil como por exemplo, recuperar senha e deletar conta.</p>
+            </div>
         </div>
 
     </div>
