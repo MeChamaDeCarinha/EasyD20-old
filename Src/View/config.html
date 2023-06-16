@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="h-auto w-full p-20 pr-16 pl-16 flex items-center justify-center flex-wrap row gap-6 shrink-0">
+<div class="h-auto w-full p-20 pr-16 pl-16 flex items-center justify-center flex-wrap row gap-6 shrink-0 duration-500">
 
     <div class="w-80 h-auto bg-light-300 dark:bg-dark-300 p-3 rounded-xl flex flex-col items-center justify-center gap-2">
         <p class="text-3xl">Configurações</p>
@@ -28,7 +28,7 @@
                     <path stroke-width="2" d="M15 6h.01" />
                     <path stroke-width="2" d="M18 9h.01" />
                 </svg>
-                Delay ao jogar dados
+                Animação dos dados
             </p>
             <label for="delayDados" class="w-max h-6">
                 <input type="checkbox" id="delayDados" class="peer w-12 h-6 bg-dark-200 checked:bg-primary rounded-full appearance-none duration-300" onchange="changeDelay()">

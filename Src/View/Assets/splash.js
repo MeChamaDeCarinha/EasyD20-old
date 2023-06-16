@@ -6,5 +6,6 @@ async function showSplash() {
     splash.style.height = "300px";
     await sleep(1000);
     splash.style.opacity = "0";
+    await sleep(1000);
     splash.style.zIndex = "-100";
 }

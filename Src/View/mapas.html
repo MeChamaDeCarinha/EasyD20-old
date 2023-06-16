@@ -8,7 +8,7 @@
 <div class="h-auto w-full p-10 pl-30 pr-30 flex items-center justify-center flex-wrap row gap-6 shrink-0">
 
     {% if alert and not mestre %}
-    <div class="group bg-light-200 dark:bg-dark-200 rounded-xl p-10 mt-16 hover:bg-light-300 dark:hover:bg-dark-300 duration-500 flex flex-col items-center justify-center gap-5">
+    <div class="group bg-light-200 dark:bg-dark-200 rounded-xl p-10 mt-10 hover:bg-light-300 dark:hover:bg-dark-300 duration-500 flex flex-col items-center justify-center gap-5">
         <div class="text-red-600 flex flex-row-reverse items-center justify-center gap-1">
             <p class="peer text-4xl">{{ alert }}</p>
             <svg class="w-9 h-9 peer-empty:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
@@ -20,8 +20,8 @@
     {% for mapa in mapas %}
     <div class="group w-96 h-64 rounded-xl border-primary2 dark:border-primary border-2 bg-light-200 dark:bg-dark-200 overflow-hidden flex flex-col items-center hover:bg-light-300  dark:hover:bg-dark-300 duration-500">
         {% if mapa.hidden and not mestre %}
-        <div class="w-full h-full flex flex-col items-center gap-1 blur">
-            <img src="../../Src/View/Images/Maps/{{ mapa.img_path }}" class="w-full h-40 object-cover">
+        <div class="w-full h-full flex flex-col items-center gap-1 blur select-none">
+            <img src="../../Src/View/Images/Maps/{{ mapa.img_path }}" class="w-full h-40 object-cover drag-none">
             <p class="shrink-0 text-center text-2xl line-clamp-1 ml-1 mr-1">{{ mapa.nome }}</p>
             <p class="h-12 shrink-0 text-center line-clamp-2 ml-1 mr-1">{{ mapa.descricao }}</p>
         </div>

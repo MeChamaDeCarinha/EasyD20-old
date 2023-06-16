@@ -69,10 +69,6 @@ window.onload = (function () {
         button = document.getElementById("botao");
     
         beauty();
-    
-        if (localStorage.getItem("diceDelay") == 0) {
-            animation();
-        }
     }   
 
 });

@@ -1,4 +1,6 @@
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 #access {
     scrollbar-width: thin;
@@ -18,6 +20,3 @@
     background-color: #eaeaea20;
     border-radius: 5px;
 }
-
-@tailwind components;
-@tailwind utilities;
