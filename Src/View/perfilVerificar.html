@@ -19,19 +19,19 @@
                 <p class="text-xl">Voltar</p>
             </a>
 
-            <div class="mr-1 ml-1 mb-5">
+            <div class="mr-1 ml-1">
                 <form action="{{ url }}/perfil/verificar" method="post" class="w-96 flex flex-col items-center justify-center gap-3">
                     <img src="../../Src/View/Images/Profiles/{{ usuario.img_path }}" id="img" class="w-32 h-32 group-hover:opacity-50 rounded-full object-cover duration-300">
                     <p class="w-4/6 text-lg text-center text-white2 dark:text-white">Um código de verificação foi enviado para <span class="text-primary2 dark:text-primary">{{ usuario.email }}</span><br><span class="text-neutral-400">Verifique a caixa de spam</span></p>
 
-                    <input type="text" name="codigo" placeholder="Insira o código de verificação" class="w-full h-8 text-light-300 dark:text-dark-300 placeholder-light-300/60 dark:placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white2/95 dark:focus:bg-white/95" maxlength="6" autocomplete="off" required>
+                    <input type="text" name="codigo" placeholder="Insira o código de verificação" class="w-full h-8 text-dark-300 placeholder-dark-300/60 placeholder:italic text-lg p-3 rounded-md outline-none focus:bg-white/95" maxlength="6" autocomplete="off" required>
                 
                     <div class="w-full flex items-center justify-between">
                         <a href="" class="ml-2 text-lg text-primary2 dark:text-primary hover:text-primary2/80 dark:hover:text-primary/80 duration-200">Reenviar código</a>
                         <input type="submit" value="Confirmar" class="w-28 h-8 bg-primary2 dark:bg-primary rounded-md text-lg text-light-300 dark:text-dark-300 cursor-pointer duration-200 hover:bg-primary2/80 dark:hover:bg-primary/80">
                     </div>
             
-                    <div class="text-red-600 mt-2 flex flex-row-reverse items-center justify-center gap-1">
+                    <div class="text-red-600 flex flex-row-reverse items-center justify-center gap-1">
                         <p class="peer text-lg">{{ alert }}</p>
                         <svg class="w-5 h-5 peer-empty:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
                     </div>

@@ -2,9 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-#access {
+.dark #access {
     scrollbar-width: thin;
     scrollbar-color: transparent #eaeaea20;
+}
+
+.dark #access::-webkit-scrollbar-thumb {
+    background-color: #eaeaea20;
+    border-radius: 5px;
+}
+
+
+#access {
+    scrollbar-width: thin;
+    scrollbar-color: transparent #bc77d6;
+}
+
+#access::-webkit-scrollbar-thumb {
+    background-color: #bd77d6;
+    border-radius: 5px;
 }
 
 #access::-webkit-scrollbar {
@@ -16,7 +32,3 @@
     border-radius: 5px;
 }
 
-#access::-webkit-scrollbar-thumb {
-    background-color: #eaeaea20;
-    border-radius: 5px;
-}
