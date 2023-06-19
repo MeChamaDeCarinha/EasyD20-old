@@ -149,6 +149,10 @@ class mapa {
         $mapa = new \Src\Model\Mapa($form["id"]);
 
         \Src\Lib\Sec::verifyUser();
+
+        if(isset($form["imagem"])){
+            $img_path = $form["imagem"];
+        }
         
         if(!empty($_FILES["file"]["name"])){
             $file = $_FILES["file"];
