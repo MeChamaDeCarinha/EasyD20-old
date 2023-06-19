@@ -14,9 +14,7 @@ class config {
     public function show(){
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
-        if(!isset($_SESSION)){
-            session_start();
-        }
+        \Src\Lib\Sec::verifyUser();
 
         $this->dados["usuario"] = new \Src\Model\Usuario($_SESSION["id"]);
 

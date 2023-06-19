@@ -18,11 +18,18 @@
         
                 {% if error == 404 %}
                 <p class="text-4xl">Essa página não existe</p>
+                {% elseif error == 403 %}
+                <p class="text-4xl">Você não pode acessar isso</p>
                 {% else %}
                 <p class="text-4xl">Oops! Algo deu errado</p>
                 {% endif %}
 
+
+                {% if error == 403 %}
+                <a href="{{ url }}/aventuras/exit" class="mt-3 bg-primary2 dark:bg-primary hover:bg-primary2/80 dark:hover:bg-primary/80 rounded-lg p-0.5 pl-6 pr-6 text-light-300 dark:text-dark-300 text-2xl duration-300">Voltar para página de aventuras</a>
+                {% else %}
                 <a href="{{ url }}" class="mt-3 bg-primary2 dark:bg-primary hover:bg-primary2/80 dark:hover:bg-primary/80 rounded-lg p-0.5 pl-6 pr-6 text-light-300 dark:text-dark-300 text-2xl duration-300">Voltar para página inicial</a>
+                {% endif %}
             </div>
         </div>
     </div>

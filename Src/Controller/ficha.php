@@ -13,7 +13,8 @@ class ficha {
     public function loadFichas() {
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
-        session_start();
+        \Src\Lib\Sec::verifyUser();
+
         $player_id = $_SESSION["id"];
         if(!isset($_SESSION["aventura_id"])){
             $this->dados["alert"] = "Nenhuma aventura foi selecionada";
@@ -78,7 +79,7 @@ class ficha {
 
         $pdo = \Src\Lib\Database::connection();
 
-        session_start();
+        \Src\Lib\Sec::verifyUser();
         $id = $_SESSION["id"];
         $ficha_id = $url["ficha_id"];
 
@@ -104,6 +105,8 @@ class ficha {
     }
 
     public function showEditar($url){
+        \Src\Lib\Sec::verifyUser();
+
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $ficha_id = $url["ficha_id"];
@@ -113,6 +116,8 @@ class ficha {
     }
 
     public function save($url){
+        \Src\Lib\Sec::verifyUser();
+        
         $ficha_id = $url["ficha_id"];
         $nome = filter_var($url['nome'], FILTER_SANITIZE_STRING);
         $idade = filter_var($url['idade'], FILTER_SANITIZE_NUMBER_INT);

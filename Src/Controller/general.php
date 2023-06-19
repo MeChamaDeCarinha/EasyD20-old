@@ -7,7 +7,7 @@ class general {
         "url" => URL
     );
 
-    public function showHomepage() {
+    public function showHomepage() {      
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         if(!isset($_SESSION)){
@@ -21,6 +21,8 @@ class general {
     }
 
     public function showDados() {
+        \Src\Lib\Sec::verifyUser();
+
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $this->dados["user"] = \Src\Lib\Dashboard::queryUser();
@@ -29,6 +31,8 @@ class general {
     }
 
     public function showTutorial() {
+        \Src\Lib\Sec::verifyUser();
+        
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $this->dados["user"] = \Src\Lib\Dashboard::queryUser();

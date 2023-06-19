@@ -19,6 +19,10 @@ class Usuario {
             
         $result = $pdo->query("select * from usuario where id = {$id}", PDO::FETCH_ASSOC);
 
+        if($result->rowCount() == 0){
+            header("Location: " . URL . "/erro/404");
+        }
+
         foreach($result as $user){
             $this->nome = $user["nome"];
             $this->email = $user["email"];

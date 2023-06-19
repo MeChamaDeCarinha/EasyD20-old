@@ -19,6 +19,10 @@ class Mapa {
             
         $result = $pdo->query("select * from mapa where id = {$id}", PDO::FETCH_ASSOC);
 
+        if($result->rowCount() == 0){
+            header("Location: " . URL . "/erro/404");
+        }
+
         foreach($result as $mapa){
             $this->cod_aventura = $mapa["cod_aventura"];
             $this->nome = $mapa["nome"];

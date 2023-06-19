@@ -17,6 +17,10 @@ class Atributo {
             
         $result = $pdo->query("select * from atributo where id = {$id}", PDO::FETCH_ASSOC);
 
+        if($result->rowCount() == 0){
+            header("Location: " . URL . "/erro/404");
+        }
+
         foreach($result as $atributo){
             $this->cod_ficha = $atributo["cod_ficha"];
             $this->nome = $atributo["nome"];

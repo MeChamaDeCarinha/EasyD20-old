@@ -14,8 +14,8 @@ class mapa {
 
         $pdo = \Src\Lib\Database::connection();
 
-        session_start();
-        $player_id = $_SESSION["id"];
+        \Src\Lib\Sec::verifyUser();
+        
         if(!isset($_SESSION["aventura_id"])){
             $this->dados["alert"] = "Nenhuma aventura foi selecionada";
 
@@ -26,6 +26,9 @@ class mapa {
         }
 
         $aventura_id = $_SESSION["aventura_id"];
+
+        // \Src\Lib\Sec::verifyAventura($aventura_id);
+
         $this->dados["mestre"] = $_SESSION["mestre"];
 
         $result = $pdo->query("select id from mapa where cod_aventura = {$aventura_id}", PDO::FETCH_ASSOC);
@@ -55,13 +58,15 @@ class mapa {
 
         $pdo = \Src\Lib\Database::connection();
 
-        if(!isset($_SESSION)){
-            session_start();
-        }
+        $mapa = new \Src\Model\Mapa($url["id"]);   
 
-        $mapa = new \Src\Model\Mapa($url["id"]);
+        \Src\Lib\Sec::verifyUser();
 
         $result = $pdo->query("select cod_usuario from aventura_usuario where cod_aventura = {$mapa->cod_aventura} and mestre = 1",  PDO::FETCH_ASSOC);
+
+        if($result->rowCount() == 0){
+            header("Location: " . URL . "/erro/404");
+        }
 
         foreach($result as $usuario){
             $this->dados["mestre_id"] = $usuario["cod_usuario"];
@@ -91,9 +96,7 @@ class mapa {
     public function new($form){
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
-        if(!isset($_SESSION)){
-            session_start();
-        }
+        \Src\Lib\Sec::verifyUser();
         
         $aventura_id = $_SESSION["aventura_id"];
         $nome = filter_var($form["name"], FILTER_SANITIZE_STRING);
@@ -121,7 +124,7 @@ class mapa {
                 die();
             }
 
-            if($extensao != "jpg" && $extensao != "png"){
+            if($extensao != "jpg" && $extensao != "jpeg" && $extensao != "png"){
                 $this->dados["alert"] = "Tipo de arquivo não aceito";
         
                 echo $ambiente->render("mapaCriar.html", $this->dados);
@@ -145,10 +148,8 @@ class mapa {
 
         $mapa = new \Src\Model\Mapa($form["id"]);
 
-        if(isset($form["imagem"])){
-            $img_path = $form["imagem"];
-        }
-
+        \Src\Lib\Sec::verifyUser();
+        
         if(!empty($_FILES["file"]["name"])){
             $file = $_FILES["file"];
             $extensao = strtolower(pathinfo($file["name"], PATHINFO_EXTENSION));
@@ -169,7 +170,7 @@ class mapa {
                 die();
             }
 
-            if($extensao != "jpg" && $extensao != "png"){
+            if($extensao != "jpg" && $extensao != "jpeg" && $extensao != "png"){
                 $this->dados["alert"] = "Tipo de arquivo não aceito";
         
                 $this->dados["mapa"] = $mapa;
@@ -196,6 +197,8 @@ class mapa {
     public function turnHidden($url){
         $mapa = new \Src\Model\Mapa($url["id"]);
 
+        \Src\Lib\Sec::verifyUser();
+        
         $mapa->hidden = !$mapa->hidden;
 
         $mapa->update();
@@ -205,6 +208,8 @@ class mapa {
 
     public function delete($url) {
         $mapa = new \Src\Model\Mapa($url["id"]);
+
+        \Src\Lib\Sec::verifyUser();
 
         $mapa->delete();
 

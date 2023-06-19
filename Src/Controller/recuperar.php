@@ -21,6 +21,7 @@ class recuperar {
         if(isset($_SESSION["id"])){
             $usuario = new \Src\Model\Usuario($_SESSION["id"]);
             $_SESSION["codigoRecuperação"] = \Src\Lib\Mail::passRecovery($usuario);
+            $this->dados["id"] = 1;
         }
         else if(isset($_SESSION["mail"])) {
             $email = $_SESSION["mail"];
@@ -29,12 +30,13 @@ class recuperar {
 
             if($result->rowCount() == 0){
                 $usuario["email"] = $email;                
-                $usuario["img_path"] = "Default.png"; 
+                $usuario["img_path"] = "Default.png";
             }
             else {
                 foreach($result as $user){
                     $usuario = new \Src\Model\Usuario($user["id"]);
                     $_SESSION["codigoRecuperação"] = \Src\Lib\Mail::passRecovery($usuario);
+                    $this->dados["id"] = 0;
                 }
             }
             

@@ -11,6 +11,8 @@ class habilidade {
     );
 
     public function showEditar($url) {
+        \Src\Lib\Sec::verifyUser();
+        
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $ficha_id = $url["ficha_id"];
@@ -23,6 +25,8 @@ class habilidade {
     }
 
     public function showNova($url) {
+        \Src\Lib\Sec::verifyUser();
+
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $this->dados["ficha"] = $url["ficha_id"];
@@ -31,6 +35,8 @@ class habilidade {
     }
 
     public function save($url){
+        \Src\Lib\Sec::verifyUser(); 
+
         $ficha_id = $url["ficha_id"];
         $id = $url["habilidade_id"];
         $nome = filter_var($url['nome'], FILTER_SANITIZE_STRING);
@@ -49,6 +55,8 @@ class habilidade {
     }
 
     public function new($url){
+        \Src\Lib\Sec::verifyUser();
+
         $ficha_id = $url["ficha_id"];
         $nome = filter_var($url['nome'], FILTER_SANITIZE_STRING);
         $forca = filter_var($url['forca'], FILTER_SANITIZE_NUMBER_INT);
@@ -60,6 +68,8 @@ class habilidade {
     }
 
     public function delete($url){
+        \Src\Lib\Sec::verifyUser();
+
         $ficha_id = $url["ficha_id"];
         $habilidade = new \Src\Model\Habilidade($url["habilidade_id"]);
 

@@ -54,6 +54,7 @@ $roteador->get("/criar", "aventura:loadCriar");
 $roteador->post("/criar", "aventura:criar"); //  Função de criar aventura
 $roteador->get("/entrar", "aventura:loadEntrar");
 $roteador->post("/entrar", "aventura:entrar"); //  Função de entrar na aventura
+$roteador->get("/exit", "aventura:exit"); // Função de sair da aventura
 
 
 // Mapas

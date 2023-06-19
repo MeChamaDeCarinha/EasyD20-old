@@ -15,9 +15,14 @@ class user {
 
         if(!isset($_SESSION)){
             session_start();
+
+            if(isset($_SESSION["alert"])){
+                $this->dados["alert"] = $_SESSION["alert"];
+            }
+
             session_destroy();
         }
-
+        
         echo $ambiente->render("login.html", $this->dados);
     }
 
@@ -35,9 +40,7 @@ class user {
     public function show() {
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
-        if(!isset($_SESSION)){
-            session_start();
-        }
+        \Src\Lib\Sec::verifyUser();
 
         $user = new \Src\Model\Usuario($_SESSION["id"]);
 
@@ -51,9 +54,7 @@ class user {
     public function showVerificar() {
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
-        if(!isset($_SESSION)){
-            session_start();
-        }
+        \Src\Lib\Sec::verifyUser();
 
         $usuario = new \Src\Model\Usuario($_SESSION["id"]);
 
@@ -66,10 +67,7 @@ class user {
     public function showSenha() {
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
-        if(!isset($_SESSION)){
-            session_start();
-        }
-
+        \Src\Lib\Sec::verifyUser();
         $user = new \Src\Model\Usuario($_SESSION["id"]);
 
         $this->dados["usuario"] = $user; 
@@ -80,10 +78,7 @@ class user {
     public function showEditar() {
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
-        if(!isset($_SESSION)){
-            session_start();
-        }
-
+        \Src\Lib\Sec::verifyUser();
         $this->dados["usuario"] = new \Src\Model\Usuario($_SESSION["id"]); 
 
         echo $ambiente->render("perfilEditar.html", $this->dados);
@@ -92,9 +87,7 @@ class user {
     public function showDelete(){
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
-        if(!isset($_SESSION)){
-            session_start();
-        }
+        \Src\Lib\Sec::verifyUser();
 
         $user = new \Src\Model\Usuario($_SESSION["id"]);
 
@@ -216,9 +209,7 @@ class user {
 
         $pdo = \Src\Lib\Database::connection();
 
-        if(!isset($_SESSION)){
-            session_start();
-        }
+        \Src\Lib\Sec::verifyUser();
 
         $user = new \Src\Model\Usuario($_SESSION["id"]);
         $this->dados["usuario"] = $user;
@@ -254,7 +245,7 @@ class user {
                 die();
             }
 
-            if($extensao != "jpg" && $extensao != "png"){
+            if($extensao != "jpg" && $extensao != "jpeg" && $extensao != "png"){
                 $this->dados["alert"] = "Tipo de arquivo não aceito";
         
                 echo $ambiente->render("perfilEditar.html", $this->dados);
@@ -305,9 +296,7 @@ class user {
     public function verificar($dados){
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
-        if(!isset($_SESSION)){
-            session_start();
-        }
+        \Src\Lib\Sec::verifyUser();
 
         $usuario = new \Src\Model\Usuario($_SESSION["id"]);
 
@@ -330,9 +319,7 @@ class user {
     public function changePass($dados){
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
-        if(!isset($_SESSION)){
-            session_start();
-        }
+        \Src\Lib\Sec::verifyUser();
 
         $usuario = new \Src\Model\Usuario($_SESSION["id"]);
         $this->dados["usuario"] = $usuario; 
@@ -375,9 +362,7 @@ class user {
     public function delete($form){
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
-        if(!isset($_SESSION)){
-            session_start();
-        }
+        \Src\Lib\Sec::verifyUser();
 
         $senha = filter_var($form['senha'], FILTER_SANITIZE_STRING);
         $usuario = new \Src\Model\Usuario($_SESSION["id"]);
@@ -398,9 +383,8 @@ class user {
     }
 
     public function logout(){
-        if(!isset($_SESSION)){
-            session_start();
-        }
+        \Src\Lib\Sec::verifyUser();
+
         session_destroy();
         header("Location: " . URL);
     }

@@ -13,29 +13,14 @@ class item {
     public function show($url) {
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
-        $pdo = \Src\Lib\Database::connection();
+        $ficha = new \Src\Model\Ficha($url["ficha_id"]);
+        $item = new \Src\Model\Item($url["item_id"]);
 
-        session_start();
-        $id = $_SESSION["id"];
-        $ficha_id = $url["ficha_id"];
-
-        $result = $pdo->query("select id, cod_aventura from ficha where id = {$ficha_id}", PDO::FETCH_ASSOC);
-
-        if($result->rowCount() == 0){
-            header("Location: " . URL . "/aventuras");
-            die();
-        }
-
-        foreach($result as $ficha){
-            $this->dados["ficha"] = new \Src\Model\Ficha($url["ficha_id"]);
-            $this->dados["item"] = new \Src\Model\Item($url["item_id"]);
-            $this->dados["aventura"] = new \Src\Model\Aventura($ficha["cod_aventura"]);
-            $mestre = $pdo->query("select id from aventura_usuario where cod_usuario = {$id} and cod_aventura = {$ficha['cod_aventura']} and mestre = 1", PDO::FETCH_ASSOC);
-            if($mestre->rowCount()){
-                $this->dados["mestre"] = 1;
-            }
-        }
-
+        \Src\Lib\Sec::verifyUser();
+        
+        $this->dados["ficha"] = $ficha;
+        $this->dados["item"] = $item;
+        $this->dados["mestre"] = $_SESSION["mestre"];
         $this->dados["user"] = \Src\Lib\Dashboard::queryUser();
         $this->dados["aven"] = \Src\Lib\Dashboard::queryAventuras();
         echo $ambiente->render("item.html", $this->dados);
@@ -44,13 +29,19 @@ class item {
     public function showEditar($url) {
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
-        $this->dados["ficha"] = $url["ficha_id"];
-        $this->dados["item"] = new \Src\Model\Item($url["item_id"]);
+        $ficha_id = $url["ficha_id"];
+        $ficha = new \Src\Model\Ficha($ficha_id);
 
+        \Src\Lib\Sec::verifyUser();
+
+        $this->dados["ficha"] = $ficha_id;
+        $this->dados["item"] = new \Src\Model\Item($url["item_id"]);
         echo $ambiente->render("itemEditar.html", $this->dados);
     }
 
     public function showNovo($url) {
+        \Src\Lib\Sec::verifyUser();
+
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $this->dados["ficha"] = $url["ficha_id"];
@@ -65,6 +56,8 @@ class item {
         $nome = filter_var($url['name'], FILTER_SANITIZE_STRING);
         $quantidade = filter_var($url['qtd'], FILTER_SANITIZE_NUMBER_INT);
         $preco = $url['preco'];
+
+        \Src\Lib\Sec::verifyUser();
 
         if(isset($url["imagem"])){
             $img_path = $url["imagem"];
@@ -92,7 +85,7 @@ class item {
                 die();
             }
 
-            if($extensao != "jpg" && $extensao != "png"){
+            if($extensao != "jpg" && $extensao != "jpeg" && $extensao != "png"){
                 $this->dados["alert"] = "Tipo de arquivo não aceito";
         
                 $this->dados["ficha"] = $url["ficha_id"];
@@ -127,6 +120,8 @@ class item {
     }
 
     public function new($url){
+        \Src\Lib\Sec::verifyUser();
+
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $ficha_id = $url["ficha_id"];
@@ -158,7 +153,7 @@ class item {
                 die();
             }
 
-            if($extensao != "jpg" && $extensao != "png"){
+            if($extensao != "jpg" && $extensao != "jpeg" && $extensao != "png"){
                 $this->dados["alert"] = "Tipo de arquivo não aceito";
         
                 $this->dados["ficha"] = $url["ficha_id"];
@@ -176,6 +171,8 @@ class item {
     }
 
     public function delete($url){
+        \Src\Lib\Sec::verifyUser();
+        
         $ficha_id = $url["ficha_id"];
         $item = new \Src\Model\Item($url["item_id"]);
 

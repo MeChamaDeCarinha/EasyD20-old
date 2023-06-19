@@ -18,6 +18,10 @@ class Habilidade {
             
         $result = $pdo->query("select * from habilidade where id = {$id}", PDO::FETCH_ASSOC);
 
+        if($result->rowCount() == 0){
+            header("Location: " . URL . "/erro/404");
+        }
+
         foreach($result as $habilidade){
             $this->cod_ficha = $habilidade["cod_ficha"];
             $this->nome = $habilidade["nome"];

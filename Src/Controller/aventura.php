@@ -13,11 +13,16 @@ class aventura {
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
         $pdo = \Src\Lib\Database::connection();
 
-        session_start();
+        \Src\Lib\Sec::verifyUser();
         $player_id = $_SESSION["id"];
         if(isset($_SESSION["splash"])){
             unset($_SESSION["splash"]);
             $this->dados["splash"] = 1;
+        }
+
+        if(isset($_SESSION["aventura_id"])){
+            header("Location: " . URL . "/aventuras/{$_SESSION['aventura_id']}");
+            die();
         }
 
         $result = $pdo->query("select cod_aventura from aventura_usuario where cod_usuario = {$player_id} and banido = 0", PDO::FETCH_ASSOC);
@@ -36,12 +41,16 @@ class aventura {
     }
 
     public function loadCriar() {
+        \Src\Lib\Sec::verifyUser();
+
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         echo $ambiente->render("aventuraCriar.html", $this->dados);
     }
 
     public function loadEntrar() {
+        \Src\Lib\Sec::verifyUser();
+
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         echo $ambiente->render("aventuraEntrar.html", $this->dados);
@@ -50,7 +59,7 @@ class aventura {
     public function selectAventura($url){
         $pdo = \Src\Lib\Database::connection();
 
-        session_start();
+        \Src\Lib\Sec::verifyUser();
         $player_id = $_SESSION["id"];
         $aventura_id = $url["id"];
 
@@ -61,13 +70,21 @@ class aventura {
             die();
         }
 
-        $_SESSION["aventura_id"] = $aventura_id;
+        $_SESSION["aventura_id"] = $aventura_id;     
         foreach($result as $mestre){
             $_SESSION["mestre"] = $mestre["mestre"];
         }
-        
 
-        header("Location: " . URL . "/fichas");
+        header("Location: " . URL . "/aventuras/{$aventura_id}");
+    }
+
+    public function exit(){
+        \Src\Lib\Sec::verifyUser();
+
+        unset($_SESSION["aventura_id"]);
+        unset($_SESSION["mestre"]);
+
+        header("Location: " . URL . "/aventuras");
     }
 
     public function criar($form){
@@ -75,7 +92,7 @@ class aventura {
         
         $pdo = \Src\Lib\Database::connection();
 
-        session_start();
+        \Src\Lib\Sec::verifyUser();
         $player_id = $_SESSION["id"];
 
         $usuario = new \Src\Model\Usuario($player_id);
@@ -111,7 +128,7 @@ class aventura {
                 die();
             }
 
-            if($extensao != "jpg" && $extensao != "png"){
+            if($extensao != "jpg" && $extensao != "jpeg" && $extensao != "png"){
                 $this->dados["alert"] = "Tipo de arquivo não aceito";
         
                 echo $ambiente->render("aventuraCriar.html", $this->dados);
@@ -136,7 +153,7 @@ class aventura {
 
         $pdo = \Src\Lib\Database::connection();
 
-        session_start();
+        \Src\Lib\Sec::verifyUser();
         $player_id = $_SESSION["id"];
         $aventura_cod = filter_var($form["codigo"], FILTER_SANITIZE_NUMBER_INT);
 
@@ -193,7 +210,14 @@ class aventura {
 
         $pdo = \Src\Lib\Database::connection();
 
-        session_start();
+        \Src\Lib\Sec::verifyUser();
+
+        $result = $pdo->query("select id from aventura where id = {$url["id"]}",  PDO::FETCH_ASSOC);
+
+        if($result->rowCount() == 0){
+            header("Location: " . URL . "/aventuras");
+            die();
+        }
 
         $result = $pdo->query("select cod_usuario, mestre from aventura_usuario where cod_aventura = {$url["id"]} and banido = 0",  PDO::FETCH_ASSOC);
 
@@ -217,6 +241,8 @@ class aventura {
     }
 
     public function save($form){
+        \Src\Lib\Sec::verifyUser();
+
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $aventura_nome = filter_var($form["name"], FILTER_SANITIZE_STRING);
@@ -245,7 +271,7 @@ class aventura {
                 die();
             }
 
-            if($extensao != "jpg" && $extensao != "png"){
+            if($extensao != "jpg" && $extensao != "jpeg" && $extensao != "png"){
                 $this->dados["alert"] = "Tipo de arquivo não aceito";
         
                 echo $ambiente->render("aventuraCriar.html", $this->dados);
@@ -272,6 +298,8 @@ class aventura {
     }
 
     public function showEditar($url){
+        \Src\Lib\Sec::verifyUser();
+
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $this->dados["aventura"] = new \Src\Model\Aventura($url["id"]);
@@ -279,6 +307,8 @@ class aventura {
     }
 
     public function delete($url){
+        \Src\Lib\Sec::verifyUser();
+        
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $aventura = new \Src\Model\Aventura($url["id"]);
@@ -297,6 +327,8 @@ class aventura {
     }
 
     public function showExcluir($url){
+        \Src\Lib\Sec::verifyUser();
+
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $this->dados["aventura"] = new \Src\Model\Aventura($url["id"]);
@@ -304,6 +336,8 @@ class aventura {
     }
 
     public function expulsar($url){
+        \Src\Lib\Sec::verifyUser();
+
         $pdo = \Src\Lib\Database::connection();
 
         $aventura_id = $url["id"];
@@ -321,6 +355,8 @@ class aventura {
     }
 
     public function showExpulsar($url){
+        \Src\Lib\Sec::verifyUser();
+
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $this->dados["usuario"] = new \Src\Model\Usuario($url["jogador_id"]);
@@ -329,6 +365,8 @@ class aventura {
     }
 
     public function saveConfig($url){
+        \Src\Lib\Sec::verifyUser();
+
         $pdo = \Src\Lib\Database::connection();
 
         $aventura = new \Src\Model\Aventura($url["id"]);
@@ -357,6 +395,8 @@ class aventura {
     }
 
     public function showConfigurar($url){
+        \Src\Lib\Sec::verifyUser();
+
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $this->dados["aventura"] = new \Src\Model\Aventura($url["id"]);
@@ -364,6 +404,8 @@ class aventura {
     }
 
     public function banir($url){
+        \Src\Lib\Sec::verifyUser();
+
         $pdo = \Src\Lib\Database::connection();
 
         $aventura_id = $url["id"];
@@ -381,6 +423,8 @@ class aventura {
     }
 
     public function showBanir($url){
+        \Src\Lib\Sec::verifyUser();
+
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $this->dados["usuario"] = new \Src\Model\Usuario($url["jogador_id"]);
@@ -389,6 +433,8 @@ class aventura {
     }
 
     public function mestre($url){
+        \Src\Lib\Sec::verifyUser();
+
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $pdo = \Src\Lib\Database::connection();
@@ -421,6 +467,8 @@ class aventura {
     }
 
     public function showMestre($url){
+        \Src\Lib\Sec::verifyUser();
+
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $this->dados["usuario"] = new \Src\Model\Usuario($url["jogador_id"]);
@@ -429,9 +477,9 @@ class aventura {
     }
 
     public function sair($url){
-        $pdo = \Src\Lib\Database::connection();
+        \Src\Lib\Sec::verifyUser();
 
-        session_start();
+        $pdo = \Src\Lib\Database::connection();
 
         $aventura_id = $url["id"];
         $id = $_SESSION["id"];
@@ -448,6 +496,8 @@ class aventura {
     }
 
     public function showSair($url){
+        \Src\Lib\Sec::verifyUser();
+        
         $ambiente = new \Twig\Environment(new \Twig\Loader\FilesystemLoader("./Src/View"));
 
         $this->dados["aventura"] = new \Src\Model\Aventura($url["id"]);

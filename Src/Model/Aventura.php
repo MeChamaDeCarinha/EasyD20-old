@@ -23,6 +23,10 @@ class Aventura {
             
         $result = $pdo->query("select * from aventura where id = {$id}", PDO::FETCH_ASSOC);
 
+        if($result->rowCount() == 0){
+            header("Location: " . URL . "/erro/404");
+        }
+
         foreach($result as $aventura){
             $this->nome = $aventura["nome"];
             $this->livro = $aventura["livro"];

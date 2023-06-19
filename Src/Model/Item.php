@@ -19,6 +19,10 @@ class Item {
             
         $result = $pdo->query("select * from item where id = {$id}", PDO::FETCH_ASSOC);
 
+        if($result->rowCount() == 0){
+            header("Location: " . URL . "/erro/404");
+        }
+
         foreach($result as $item){
             $this->cod_ficha = $item["cod_ficha"];
             $this->nome = $item["nome"];

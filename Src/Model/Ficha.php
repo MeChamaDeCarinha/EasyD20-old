@@ -32,6 +32,10 @@ class Ficha {
             
         $result = $pdo->query("select * from ficha where id = {$id}", PDO::FETCH_ASSOC);
 
+        if($result->rowCount() == 0){
+            header("Location: " . URL . "/erro/404");
+        }
+
         foreach($result as $ficha){
             $this->cod_usuario = $ficha["cod_usuario"];
             $this->cod_aventura = $ficha["cod_aventura"];
