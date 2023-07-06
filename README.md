@@ -18,7 +18,7 @@ Trazer o RPG de mesa para perto do mundo digital sem comprometer a liberdade e c
 
 **Back-end:** PHP
 
-**Server** LAMP (Linux, Apache, MySQL, PHP) no Microsoft Azure
+**Server** [Teste aqui](http://74.235.232.61) - LAMP (Linux, Apache, MySQL, PHP) no Microsoft Azure
 
 
 ## 🧑🏽 Autores
