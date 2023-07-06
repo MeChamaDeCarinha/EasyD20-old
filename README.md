@@ -14,9 +14,11 @@ Trazer o RPG de mesa para perto do mundo digital sem comprometer a liberdade e c
 
 ## 👩🏽‍💻 Stack utilizada
 
-**Front-end:** HTML e CSS
+**Front-end:** HTML e CSS (Framework de css Tailwind)
 
 **Back-end:** PHP
+
+**Server** LAMP (Linux, Apache, MySQL, PHP) no Microsoft Azure
 
 
 ## 🧑🏽 Autores
