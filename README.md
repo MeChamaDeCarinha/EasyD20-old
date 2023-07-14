@@ -2,7 +2,7 @@
 
 ❓ - Trabalho de conclusão de curso em Desenvolvimento de Sistemas.
 
-🚌 - Escola: ETEC Philadelpho Gouvêa Netto
+🚌 - Escola: Etec Philadelpho Gouvêa Netto
 
 🗺 - São José do Rio Preto, São Paulo.
 
@@ -14,7 +14,7 @@ Trazer o RPG de mesa para perto do mundo digital sem comprometer a liberdade e c
 
 ## 👩🏽‍💻 Stack utilizada
 
-**Front-end:** HTML e CSS (Framework de css Tailwind)
+**Front-end:** HTML e CSS (Framework de CSS Tailwind)
 
 **Back-end:** PHP
 
